@@ -22,7 +22,7 @@ jobs:
         uses: markwilson/html2pdf@v1.0
         with:
             htmlPath: 'index.html'
-            pdfName: 'right-resume.pdf'
+            pdfName: 'right-resume'
         # uses: fifsky/html-to-pdf-action@master
         # with:
         #   htmlFile: ./index.html
