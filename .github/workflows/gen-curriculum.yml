@@ -16,13 +16,18 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
+      
 
       - name: Convert HTML to PDF
-        uses: fifsky/html-to-pdf-action@master
+        uses: markwilson/html2pdf@v1.0
         with:
-          htmlFile: ./index.html
-          outputFile: ./right-resume.pdf
-          pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'
+            htmlPath: 'index.html'
+            pdfName: 'right-resume.pdf'
+        # uses: fifsky/html-to-pdf-action@master
+        # with:
+        #   htmlFile: ./index.html
+        #   outputFile: ./right-resume.pdf
+        #   pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
