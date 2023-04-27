@@ -23,6 +23,7 @@ jobs:
           htmlFile: ./index.html
           outputFile: ./right-resume.pdf
           pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'      
+      - run: chmod 777 right-resume.pdf
 
       - name: Upload artifacts        
         uses: actions/upload-artifact@v3
