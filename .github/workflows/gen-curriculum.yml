@@ -1,0 +1,23 @@
+# Sample workflow for building and deploying a Jekyll site to GitHub Pages
+name: Generate Curriculum
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Generate Curriculum
+        uses: misaelnieto/web_to_pdf_action@master
+        with:
+          webPageURL: https://marcossilvestrini.github.io/portfolio/
+          outputFile: ./right-resume.pdf
+          usePuppeteer: true
+          useScreen: true
+          pdfOptions: '{"format": "Letter", "margin": {"top": "10mm", "left": "10mm", "right": "10mm", "bottom": "10mm"}}'
