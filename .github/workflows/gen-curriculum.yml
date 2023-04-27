@@ -1,23 +1,31 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Generate Curriculum
+name: Generate CV
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+on: [push, pull_request]
 
 jobs:
-  # Build job
-  build:
-    runs-on: ubuntu-latest
+  html_to_pdf:
+    name: Generate PDF
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
         with:
-            fetch-depth: 1
-      - name: Generate Curriculum
+          fetch-depth: 1
+
+      - name: Convert HTML to PDF
         uses: fifsky/html-to-pdf-action@master
         with:
-            htmlFile: ./index.html
-            outputFile: ./right-resume.pdf
-            pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'
+          htmlFile: ./index.html
+          outputFile: ./right-resume.pdf
+          pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: CV PDF
+          path: ./right-resume.pdf
