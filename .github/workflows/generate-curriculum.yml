@@ -29,3 +29,11 @@ jobs:
         with:
           name: right-resume 
           path: ./right-resume.pdf
+
+      - name: Download Artefacts
+        uses: actions/download-artifact@v3
+        with:
+          name: right-resume
+            
+      - name: Display structure of downloaded files
+        run: ls -R
