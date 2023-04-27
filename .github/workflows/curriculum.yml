@@ -35,13 +35,12 @@ jobs:
         id: download-artifact
         uses: dawidd6/action-download-artifact@v2
         with:                        
-            workflow: curriculum.yml            
+            #workflow: curriculum.yml            
             workflow_conclusion: success            
             pr: ${{github.event.pull_request.number}}            
             commit: ${{github.event.pull_request.head.sha}}            
             branch: master            
-            event: push                        
-            run_id: ${{ github.event.workflow_run.id }}                        
+            event: push                                                        
             name: right-resume            
             check_artifacts: false            
             search_artifacts: false            
