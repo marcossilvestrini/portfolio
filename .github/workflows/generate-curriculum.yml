@@ -36,4 +36,4 @@ jobs:
           name: right-resume
             
       - name: Display structure of downloaded files
-        run: ls -R
+        run: sudo ls -R
