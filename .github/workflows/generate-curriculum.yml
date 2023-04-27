@@ -22,7 +22,8 @@ jobs:
         with:
           htmlFile: ./index.html
           outputFile: ./right-resume.pdf
-          pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'      
+          #pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'      
+          pdfOptions: '{"format": "A4", "margin": {"top": "10mm", "left": "10mm", "right": "10mm", "bottom": "10mm"}}'
       - run: sudo chmod 777 right-resume.pdf
       - run: /usr/bin/git config --global user.email "marcos.silvestrini@gmail.com"
       - run: /usr/bin/git config --global user.name "marcossilvestrini"
@@ -37,10 +38,10 @@ jobs:
           name: right-resume 
           path: ./right-resume.pdf
 
-      - name: Download Artefacts
-        uses: actions/download-artifact@v3
-        with:
-          name: right-resume
+      # - name: Download Artefacts
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: right-resume
             
-      - name: Display structure of downloaded files
-        run: sudo ls -R
+      # - name: Display structure of downloaded files
+      #   run: sudo ls -R
