@@ -1,0 +1,53 @@
+name: Generate CV
+
+on: [push, pull_request]
+
+jobs:
+  html_to_pdf:
+    name: Generate PDF
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: HTML to PDF
+        uses: fifsky/html-to-pdf-action@master
+        with:
+          htmlFile: ./index.html
+          outputFile: ./right-resume.pdf
+          pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'
+      - run: ls
+
+      - name: Upload artifacts        
+        uses: actions/upload-artifact@v3
+        with:
+          name: right-resume 
+          path: ./right-resume.pdf
+      - run: ls
+      - name: Download artifact
+        id: download-artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:                        
+            workflow: curriculum.yml            
+            workflow_conclusion: success            
+            pr: ${{github.event.pull_request.number}}            
+            commit: ${{github.event.pull_request.head.sha}}            
+            branch: master            
+            event: push                        
+            run_id: ${{ github.event.workflow_run.id }}                        
+            name: right-resume            
+            check_artifacts: false            
+            search_artifacts: false            
+            skip_unpack: false
+            # Optional, choose how to exit the action if no artifact is found
+            # can be one of:
+            #  "fail", "warn", "ignore"
+            # default fail
+            if_no_artifact_found: fail
