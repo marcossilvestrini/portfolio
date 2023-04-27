@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1
 
@@ -23,9 +23,11 @@ jobs:
           htmlFile: ./example.html
           outputFile: ./example.pdf
           pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'
+      - run: ls
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+      - name: Upload artifacts        
+        uses: actions/upload-artifact@v3
         with:
           name: Example PDF
           path: ./example.pdf
+      - run: ls
