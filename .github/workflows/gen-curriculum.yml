@@ -1,4 +1,4 @@
-name: Test Build Pdf
+name: Generate CV
 
 on: [push, pull_request]
 
@@ -17,17 +17,17 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: html to pdf
+      - name: HTML to PDF
         uses: fifsky/html-to-pdf-action@master
         with:
-          htmlFile: ./example.html
-          outputFile: ./example.pdf
+          htmlFile: ./index.html
+          outputFile: ./right-resume.pdf
           pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'
       - run: ls
 
       - name: Upload artifacts        
         uses: actions/upload-artifact@v3
         with:
-          name: Example PDF
-          path: ./example.pdf
+          name: Upload CV 
+          path: ./right-resume.pdf
       - run: ls
