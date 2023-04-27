@@ -12,25 +12,26 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
-      
+    #   - name: Checkout code
+    #     uses: actions/checkout@v2
+    #     with:
+    #       fetch-depth: 1     
 
-      - name: Convert HTML to PDF
+      - name: Convert HTML to PDF -  1
         uses: markwilson/html2pdf@v1.0
         with:
             htmlPath: 'index.html'
             pdfName: 'right-resume'
-        # uses: fifsky/html-to-pdf-action@master
-        # with:
-        #   htmlFile: ./index.html
-        #   outputFile: ./right-resume.pdf
-        #   pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: CV PDF
-          path: ./right-resume.pdf
+    #   - name: Convert HTML to PDF - 2
+    #     uses: fifsky/html-to-pdf-action@master
+    #     with:
+    #       htmlFile: ./index.html
+    #       outputFile: ./right-resume.pdf
+    #       pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'
+
+    #   - name: Upload artifacts
+    #     uses: actions/upload-artifact@v2
+    #     with:
+    #       name: CV PDF
+    #       path: ./right-resume.pdf
