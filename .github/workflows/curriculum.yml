@@ -78,10 +78,10 @@ jobs:
             # is treated as a regular expression if input name_is_regexp is true
             # will download only those artifacts with a name that matches this regular expression
             # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions
-            name: right-resume
+            # name: right-resume
             
             # Optional, name is treated as a regular expression if set true
-            name_is_regexp: true
+            # name_is_regexp: true
             
             # Optional, a directory where to extract artifact(s), defaults to the current directory
             #path: extract_here
@@ -100,7 +100,7 @@ jobs:
             
             # Optional, choose to skip unpacking the downloaded artifact(s)
             # default false
-            skip_unpack: false
+            # skip_unpack: false
             
             # Optional, choose how to exit the action if no artifact is found
             # can be one of:
