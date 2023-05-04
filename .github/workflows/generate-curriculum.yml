@@ -24,19 +24,21 @@ jobs:
           outputFile: ./right-resume.pdf
           #pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'      
           pdfOptions: '{"format": "A4", "margin": {"top": "10mm", "left": "10mm", "right": "10mm", "bottom": "10mm"}}'          
-      - run: sudo chmod 777 right-resume.pdf
-      - run: /usr/bin/git config --global user.email "marcos.silvestrini@gmail.com"
-      - run: /usr/bin/git config --global user.name "marcossilvestrini"
-      - run: /usr/bin/git add right-resume.pdf
-      - run: /usr/bin/git commit -m "Add curriculum"
-      - run: /usr/bin/git push origin main
       
-
-      - name: Upload artifacts        
-        uses: actions/upload-artifact@v3
-        with:
-          name: right-resume 
-          path: ./right-resume.pdf
+      - name: Push Curriculum to Repository      
+        run: |
+          sudo chmod 777 right-resume.pdf
+          /usr/bin/git config --global user.email "marcos.silvestrini@gmail.com"
+          /usr/bin/git config --global user.name "marcossilvestrini"
+          /usr/bin/git add right-resume.pdf
+          /usr/bin/git commit -m "Add curriculum"
+          /usr/bin/git push origin main
+    
+      # - name: Upload artifacts        
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: right-resume 
+      #     path: ./right-resume.pdf
 
       # - name: Download Artefacts
       #   uses: actions/download-artifact@v3
