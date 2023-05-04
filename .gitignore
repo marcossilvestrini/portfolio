@@ -1,0 +1,24 @@
+#ignore files general
+**/*.log
+**/*.vagrant
+*workspace.code-workspace
+**/*.vdi
+
+#security
+**/authorized_keys
+**/*.pub
+**/*.ppk
+**/*private*
+!Klpic2.com.br.+013+29838.private
+.azure-secrets
+
+#Apps
+*.exe
+
+#Slack
+Slack/silvestrini.py
+*__pycache__*
+
+
+# Docs
+docs/~$ALURA-slides-azure-certificaç╞o.pptx
