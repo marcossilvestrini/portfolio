@@ -35,15 +35,15 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: right-resume
-
+      
       - name: Push Curriculum to Repository      
         run: |
-          sudo chmod 777 right-resume.pdf
-          /usr/bin/git config --global user.email "marcos.silvestrini@gmail.com"
-          /usr/bin/git config --global user.name "marcossilvestrini"
-          /usr/bin/git add right-resume.pdf
-          /usr/bin/git commit -m "Add curriculum"
-          /usr/bin/git push origin main
-
+            sudo chmod 777 right-resume.pdf
+            /usr/bin/git config --global user.email "marcos.silvestrini@gmail.com"
+            /usr/bin/git config --global user.name "marcossilvestrini"
+            /usr/bin/git add right-resume.pdf
+            /usr/bin/git commit -m "Add curriculum"
+            /usr/bin/git push origin main
+            
       # - name: Display structure of downloaded files
       #   run: sudo ls -R
