@@ -1,4 +1,4 @@
-name: generate-curriculum
+name: Genetare Curriculum
 
 on: [push, pull_request]
 
@@ -26,13 +26,13 @@ jobs:
           pdfOptions: '{"format": "A4", "margin": {"top": "10mm", "left": "10mm", "right": "10mm", "bottom": "10mm"}}'          
 
       - name: Upload artifacts        
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: right-resume 
           path: ./right-resume.pdf
   
       - name: Download Artefacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: right-resume
       
