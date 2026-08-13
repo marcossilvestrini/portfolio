@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import ProfileSelector from '../components/ProfileSelector.astro';
+import SkillCategory from '../components/SkillCategory.astro';
+import TimelineCard from '../components/TimelineCard.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const experiencias = await getCollection('experiencias');
+const habilidades = await getCollection('habilidades');
+const certificacoes = await getCollection('certificacoes');
+
+const sortedExperiencias = experiencias.sort((a, b) => (a.data?.ordem ?? 0) - (b.data?.ordem ?? 0));
+---
+
+<Layout title="Marcos Silvestrini - Currículo">
+  <Header />
+  <ProfileSelector />
+  <main class="px-4 py-4">
+    <section class="skills-section mb-5">
+      <h2 class="h3 mb-4">Habilidades Profissionais</h2>
+      <div id="skills-grid" class="row">
+        {habilidades.map((h) => (
+          <div class="col-md-6 skill-item" data-perfis={h.data.perfis.join(',')}>
+            <SkillCategory {...h.data} />
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="experience-section mb-5">
+      <h2 class="h3 mb-4">Experiência Profissional</h2>
+      {sortedExperiencias.map((e) => (
+        <div class="exp-item" data-perfis={e.data.perfis.join(',')}>
+          <TimelineCard {...e.data} />
+        </div>
+      ))}
+    </section>
+
+    <section class="cert-section mb-5">
+      <h2 class="h3 mb-4">Certificações e Formação</h2>
+      <div class="row">
+        {certificacoes.map((c) => (
+          <div class="col-md-6 mb-3">
+            <div class="card p-3 shadow-sm">
+              <h4 class="h6">{c.data.titulo} <span class="text-muted small">- {c.data.instituicao}</span></h4>
+              <p class="small text-muted">{c.data.ano}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section mb-5">
+      <h2 class="h3 mb-4">Entre em Contato</h2>
+      <ContactForm />
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline src="../scripts/profileFilter.js"></script>

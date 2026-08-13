@@ -1,0 +1,29 @@
+---
+interface Props {
+  cargo: string;
+  empresa: string;
+  periodo: string;
+  detalhes: string[];
+}
+
+const { cargo, empresa, periodo, detalhes } = Astro.props;
+---
+
+<div class="timeline-card card shadow-sm mb-3">
+  <div class="card-body p-3">
+    <h4 class="h5 mb-1">{cargo} <span class="text-muted h6">- {empresa}</span></h4>
+    <div class="text-muted text-small mb-2 font-italic" style="font-size: 0.85rem;">{periodo}</div>
+    <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #4a5568;">
+      {detalhes.map((detalhe) => (
+        <li class="mb-1"><i class="fa-solid fa-circle-chevron-right me-2" style="font-size: 0.7rem; color: var(--primary-color);"></i>{detalhe}</li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .card { border-left: 4px solid var(--primary-color); }
+  @media print {
+    .card { border: 1px solid #ccc !important; }
+  }
+</style>

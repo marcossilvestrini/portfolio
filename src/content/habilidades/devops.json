@@ -1,0 +1,30 @@
+{
+  "categoria": "DevOps, CI/CD & Containers",
+  "porcentagem": 80,
+  "corBarra": "bg-primary",
+  "perfis": ["devops", "plataforma"],
+  "itens": [
+    {
+      "subcategoria": "Git & GitOps",
+      "detalhes": [
+        "Git: Controle de versão, fluxos Trunk-Based e Gitflow.",
+        "Sistemas & Pipelines: Automações com GitHub Actions, Bitbucket Pipelines e GitLab Workflows com integrações Slack, Jira e Confluence."
+      ]
+    },
+    {
+      "subcategoria": "Infraestrutura como Código (IaC)",
+      "detalhes": [
+        "Terraform: Gerenciamento de estado (State), escrita de Módulos reutilizáveis, e provisionamento declarativo multicloud.",
+        "Ansible: Criação de Playbooks, Roles estruturadas, gestão de variáveis sensíveis com Ansible Vault, e execução de comandos ad-hoc."
+      ]
+    },
+    {
+      "subcategoria": "Containers & Orquestração",
+      "detalhes": [
+        "Docker: Escrita de Dockerfiles otimizados (multi-stage), Docker Compose, gerenciamento de imagens e redes.",
+        "Kubernetes: Instalação e gestão de Clusters (Kind, Kubeadm, RKE2), arquitetura control-plane/worker, workloads (Deployments, Statefulsets, Daemonsets, Pods), persistência (PV/PVC), Services e Rancher.",
+        "Evolução K8s: Empacotamento com Helm (criação e customização de Charts) e entrega contínua GitOps com ArgoCD (Applications, Applicationsets e estratégias de sincronização)."
+      ]
+    }
+  ]
+}

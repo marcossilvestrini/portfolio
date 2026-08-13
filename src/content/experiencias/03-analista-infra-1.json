@@ -1,0 +1,14 @@
+{
+  "ordem": 3,
+  "cargo": "Analista de Infraestrutura I",
+  "empresa": "TOTVS",
+  "periodo": "Aug, 2011 - May, 2015",
+  "detalhes": [
+    "Atendimento Cloud Clientes Standart.",
+    "Responsável pela disponibilidade, desempenho, deploy e nível de satisfação dos clientes de Cloud para contratos Standart.",
+    "Atuava na resolução de problemas relacionados à infraestrutura de nível 1.",
+    "Utilização de diversas tecnologias para entrega do SLA dos Clientes Standart.",
+    "Colaborava com as ações Sociais da Empresa (Instituto IoS)."
+  ],
+  "perfis": ["infraestrutura"]
+}

@@ -1,0 +1,15 @@
+{
+  "ordem": 1,
+  "cargo": "Cloud SRE Platafform",
+  "empresa": "TOTVS",
+  "periodo": "Sep, 2020 - Feb, 2023",
+  "detalhes": [
+    "Atendimento Cloud InfraBase",
+    "Responsável por automatizar processos relacionados à infraestrutura utilizando a cultura DevOps como pilar.",
+    "Atuava na implementação do SRE com os demais times para sustentação da infraestrutura da Cloud TOTVS.",
+    "Participava de projetos de migração de Infra para IaC de alguns componentes da Cloud TOTVS.",
+    "Participava de processos relacionados a governança, como Comitês, abertura de RDM's, INC's, PRB's e Post Mortem.",
+    "Colaborava com as ações Sociais da Empresa (Instituto IoS)"
+  ],
+  "perfis": ["plataforma", "devops"]
+}

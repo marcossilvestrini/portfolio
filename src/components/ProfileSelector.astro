@@ -1,0 +1,32 @@
+---
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const profiles = [
+  { id: 'todos', href: '/', label: 'Visão Geral', className: 'btn-outline-primary' },
+  { id: 'plataforma', href: '/plataforma', label: 'Plataforma', className: 'btn-outline-success' },
+  { id: 'devops', href: '/devops', label: 'DevOps & SRE', className: 'btn-outline-primary' },
+  { id: 'infraestrutura', href: '/infraestrutura', label: 'Infraestrutura', className: 'btn-outline-secondary' },
+];
+---
+<nav class="nav-filters d-print-none py-3 px-4 border-bottom bg-light">
+  <div class="container d-flex flex-wrap gap-2 justify-content-center">
+    {profiles.map((profile) => (
+      <a
+        href={profile.href}
+        class={`btn btn-sm ${profile.className} ${currentPath === profile.href ? 'active' : ''}`}
+        data-perfil={profile.id}
+      >
+        {profile.label}
+      </a>
+    ))}
+  </div>
+</nav>
+
+<style>
+  .btn-outline-primary { border: 1px solid var(--primary-color); color: var(--primary-color); }
+  .btn-outline-primary:hover { background-color: var(--primary-color); color: white; }
+  .btn-outline-success { border: 1px solid var(--success-color); color: var(--success-color); }
+  .btn-outline-success:hover { background-color: var(--success-color); color: white; }
+  .btn-outline-secondary { border: 1px solid var(--text-muted); color: var(--text-muted); }
+  .btn-outline-secondary:hover { background-color: var(--text-muted); color: white; }
+</style>

@@ -1,0 +1,16 @@
+{
+  "ordem": 2,
+  "cargo": "Analista de Infraestrutura II",
+  "empresa": "TOTVS",
+  "periodo": "May, 2015 - Sep, 2020",
+  "detalhes": [
+    "Atendimento Cloud Clientes Prime",
+    "Responsável pela disponibilidade, desempenho, automações, deploy e nível de satisfação dos clientes de Cloud para contratos Prime.",
+    "Atuava na resolução de problemas relacionados à infraestrutura de nível 2 e 3.",
+    "Responsável por automatizar processos relacionados à infraestrutura utilizando a cultura DevOps como pilar.",
+    "Participava de processos relacionados a governança, como Comitês, abertura de RDM's, INC's, PRB's e Post Mortem.",
+    "Utilização de diversas tecnologias para entrega do SLA dos Clientes Prime.",
+    "Colaborava com as ações Sociais da Empresa (Instituto IoS)"
+  ],
+  "perfis": ["devops", "infraestrutura"]
+}

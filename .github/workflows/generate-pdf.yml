@@ -1,0 +1,50 @@
+name: Generate PDF Resume
+
+on:
+  workflow_run:
+    workflows: ["Deploy to GitHub Pages"]
+    types:
+      - completed
+    branches:
+      - main
+
+jobs:
+  generate-pdf:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download Puppeteer browser
+        run: node -e "require('puppeteer/install.js')"
+        # This is necessary because the project's "type": "module" conflicts with Puppeteer's CJS install scripts.
+
+      - name: Generate PDF from live site
+        run: npm run pdf
+        env:
+          URL: https://marcossilvestrini.github.io
+
+      - name: Commit and push PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet public/right-resume.pdf; then
+            git add public/right-resume.pdf
+            git commit -m "docs: Update resume PDF [skip ci]"
+            git push
+          else
+            echo "No changes to PDF, skipping commit."
+          fi

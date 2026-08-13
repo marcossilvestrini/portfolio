@@ -1,0 +1,15 @@
+{
+  "categoria": "Observabilidade & Monitoramento",
+  "porcentagem": 75,
+  "corBarra": "bg-info",
+  "perfis": ["devops", "plataforma", "infraestrutura"],
+  "itens": [
+    {
+      "subcategoria": "Ferramentas de Monitoração",
+      "detalhes": [
+        "Centreon & Nagios Core: Instalação, configuração de checks padrão, checks remotos com NSClient e NRPE, criação de dashboards, views de status e envio automatizado de alertas.",
+        "Zabbix: Instalação, configuração de agentes, noções de templates e monitoramento de serviços e hosts."
+      ]
+    }
+  ]
+}

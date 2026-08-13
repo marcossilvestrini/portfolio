@@ -1,0 +1,18 @@
+{
+  "categoria": "Engenharia de Plataforma & DX",
+  "porcentagem": 85,
+  "corBarra": "bg-success",
+  "perfis": ["plataforma"],
+  "itens": [
+    {
+      "subcategoria": "Backstage (Internal Developer Portal)",
+      "detalhes": [
+        "Arquitetura: Instalação, build de imagem customizada e deploy do workload em clusters Kubernetes.",
+        "Entidades: Modelagem e organização do Catálogo de Serviços (Domains, Systems, Components, Resources) e estrutura organizacional (Orgs, Groups, Users).",
+        "Plugins: Configuração e integração de plugins oficiais do ecossistema e desenvolvimento de plugins customizados.",
+        "Templates: Criação de Software Templates inteligentes, automação de GitOps pós-criação e provisionamento padronizado de recursos.",
+        "TechDocs: Configuração de documentação como código integrada, build remoto e publicação integrada."
+      ]
+    }
+  ]
+}

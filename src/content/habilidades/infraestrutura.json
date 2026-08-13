@@ -1,0 +1,36 @@
+{
+  "categoria": "Infraestrutura",
+  "porcentagem": 90,
+  "corBarra": "bg-danger",
+  "perfis": ["infraestrutura", "devops"],
+  "itens": [
+    {
+      "subcategoria": "GNU\\Linux",
+      "detalhes": [
+        "Conceitos GNU\\Linux: estrutura de kernel, bootloader GRUB, gerenciamento de processos com Sys-V e systemd, licenciamento, distribuições RPM e Debian/Ubuntu, e gestão de acessos.",
+        "Segurança: iptables (tabelas e chains), OpenSSL, túnel SSH, gestão de chaves e certificados (CA, CSR), OpenVPN e TCP Wrappers.",
+        "Serviços Core: Configuração de DNS Bind (Zonas, DNSSEC, Slaves), ISC DHCP Server (Escopos e Reservas), OpenLDAP (integração e diretórios), e compartilhamento com Samba e NFS."
+      ]
+    },
+    {
+      "subcategoria": "Windows",
+      "detalhes": [
+        "Conceitos Windows: Instalação, configuração de AD DS, DHCP, DNS, IIS, e administração do Active Directory.",
+        "Powershell: Criação de automações e scripts administrativos avançados via terminal."
+      ]
+    },
+    {
+      "subcategoria": "Redes",
+      "detalhes": [
+        "Fundamentos de Redes: Modelo OSI, arquitetura TCP/IP, classes de IP, sub-redes, roteamentos wired/wireless, e protocolos (HTTP, SSH, DNS, RDP, SMTP, IMAP, etc.)."
+      ]
+    },
+    {
+      "subcategoria": "Virtualização",
+      "detalhes": [
+        "VMWare: Criação de datacenters, storages, switches, vCenter e automações com PowerCLI / govc.",
+        "KVM: Noções de virtualização local com QEMU-KVM e libvirt."
+      ]
+    }
+  ]
+}
