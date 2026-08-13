@@ -1,4 +1,4 @@
-name: Genetare Curriculum
+name: Generate Curriculum
 
 on: [push, pull_request]
 
