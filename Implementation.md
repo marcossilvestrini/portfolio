@@ -8,7 +8,7 @@ portfolio/
 ├── .github/
 │   └── workflows/
 │       ├── deploy.yml            # Build e Deploy automático no GitHub Pages
-│       └── generate-pdf.yml      # Gera o right-resume.pdf automaticamente após o deploy
+│       └── generate-pdf.yml      # Gera o resume.pdf automaticamente após o deploy
 ├── src/
 │   ├── content/                  # COLEÇÕES DE DADOS (Markdown / JSON separados)
 │   │   ├── config.ts             # Validação dos tipos de dados
@@ -49,7 +49,7 @@ portfolio/
 │   │   └── profileFilter.js      # Lógica JS para alternar perfis na home
 │
 │   ├── favicon.ico
-│   ├── right-resume.pdf          # PDF gerado automaticamente pela Action
+│   ├── resume.pdf          # PDF gerado automaticamente pela Action
 │   └── images/                   # Imagens e foto de perfil
 │
 ├── astro.config.mjs              # Configuração do Astro (base URL do GitHub Pages)
@@ -63,10 +63,10 @@ portfolio/
 - Mantemos a sua integração do __Formspree__ (`https://formspree.io/f/xpzekgve`), que já envia e-mails e suporta webhooks diretos para o __Slack__.
 - O componente `ContactForm.astro` terá validação HTML5/JS moderna, UX amigável com indicador de carregamento e mensagem de sucesso/erro sem redirecionar a página.
 
-### B. Automação de Geração de PDF (`right-resume.pdf`)
+### B. Automação de Geração de PDF (`resume.pdf`)
 
 - Atualizaremos a GitHub Action `.github/workflows/generate-pdf.yml`.
-- Quando você atualizar qualquer dado no repositório, o GitHub constrói a página, renderiza em background via Headless Chrome e atualiza o arquivo `public/right-resume.pdf` no repositório automaticamente.
+- Quando você atualizar qualquer dado no repositório, o GitHub constrói a página, renderiza em background via Headless Chrome e atualiza o arquivo `public/resume.pdf` no repositório automaticamente.
 
 ### C. Deploy Contínuo no GitHub Pages
 

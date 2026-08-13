@@ -9,17 +9,16 @@ echo ">>> [1/5] Atualizando lista de pacotes do sistema..."
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -y
 
-echo ">>> [2/5] Instalando ferramentas essenciais (git, make, curl)..."
-apt-get install -y curl git make gnupg
+echo ">>> [2/5] Instalando ferramentas essenciais (git, make, curl, unzip)..."
+apt-get install -y curl git make gnupg unzip
 
-echo ">>> [3/5] Instalando Node.js v20.x (LTS)..."
-# Adiciona o repositório oficial do NodeSource para obter uma versão recente.
-curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+echo ">>> [3/5] Instalando Node.js v22.x (LTS)..."
+# Altera para o repositório oficial do NodeSource para a versão 22 (exigida pelo projeto).
+curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
 apt-get install -y nodejs
 
 echo ">>> [4/5] Instalando dependências do Puppeteer/Chrome Headless para geração de PDF..."
 # Lista de pacotes necessários para o Chrome rodar em modo headless no Debian.
-# Fonte: Documentação oficial do Puppeteer.
 apt-get install -y \
     libnss3 \
     libnspr4 \
@@ -39,13 +38,14 @@ apt-get install -y \
     libxrandr2 \
     libpangocairo-1.0-0 \
     libcairo2 \
-    libpango-1.0-0
+    libpango-1.0-0 \
+    unzip
 
-echo ">>> [5/5] Instalando dependências do projeto com 'make install'..."
-cd /vagrant
-make install # Isso irá executar 'npm ci' e baixar o navegador do Puppeteer.
+echo ">>> [5/5] Entrando na pasta do projeto e rodando 'make install'..."
+cd /home/vagrant/portfolio
+make install
 
 echo "✅ Ambiente pronto! Para usar, siga os passos:"
 echo "   1. Conecte-se à VM com: vagrant ssh"
-echo "   2. Navegue até a pasta do projeto com: cd /vagrant"
+echo "   2. Navegue até a pasta do projeto com: cd /home/vagrant/portfolio"
 echo "   3. Inicie o servidor de desenvolvimento com: make dev"

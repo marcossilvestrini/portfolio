@@ -41,8 +41,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet public/right-resume.pdf; then
-            git add public/right-resume.pdf
+          if ! git diff --quiet public/resume.pdf; then
+            git add public/resume.pdf
             git commit -m "docs: Update resume PDF [skip ci]"
             git push
           else
