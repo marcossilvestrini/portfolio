@@ -11,10 +11,10 @@ const experiencias = await getCollection('experiencias');
 const habilidades = await getCollection('habilidades');
 
 const filteredExp = experiencias
-  .filter(e => (e.data?.perfis || []).includes('devops'))
+  .filter((e) => (e.data?.perfis || []).includes('devops'))
   .sort((a, b) => (a.data?.ordem ?? 0) - (b.data?.ordem ?? 0));
 
-const filteredSkills = habilidades.filter(h => (h.data?.perfis || []).includes('devops'));
+const filteredSkills = habilidades.filter((h) => (h.data?.perfis || []).includes('devops'));
 ---
 
 <Layout title="Marcos Silvestrini - DevOps & SRE">

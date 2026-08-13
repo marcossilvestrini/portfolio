@@ -11,10 +11,10 @@ const experiencias = await getCollection('experiencias');
 const habilidades = await getCollection('habilidades');
 
 const filteredExp = experiencias
-  .filter(e => (e.data?.perfis || []).includes('infraestrutura'))
+  .filter((e) => (e.data?.perfis || []).includes('infraestrutura'))
   .sort((a, b) => (a.data?.ordem ?? 0) - (b.data?.ordem ?? 0));
 
-const filteredSkills = habilidades.filter(h => (h.data?.perfis || []).includes('infraestrutura'));
+const filteredSkills = habilidades.filter((h) => (h.data?.perfis || []).includes('infraestrutura'));
 ---
 
 <Layout title="Marcos Silvestrini - Infraestrutura">

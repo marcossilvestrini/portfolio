@@ -9,17 +9,14 @@ echo ">>> [1/5] Atualizando lista de pacotes do sistema..."
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -y
 
-echo ">>> [2/5] Instalando ferramentas essenciais (git, make, curl, unzip)..."
-apt-get install -y curl git make gnupg unzip
-
-echo ">>> [3/5] Instalando Node.js v22.x (LTS)..."
-# Altera para o repositório oficial do NodeSource para a versão 22 (exigida pelo projeto).
-curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
-apt-get install -y nodejs
-
-echo ">>> [4/5] Instalando dependências do Puppeteer/Chrome Headless para geração de PDF..."
-# Lista de pacotes necessários para o Chrome rodar em modo headless no Debian.
+echo ">>> [2/6] Instalando ferramentas essenciais e dependências do Puppeteer..."
+# Instala ferramentas básicas e dependências para o Chrome rodar em modo headless (Puppeteer) de uma só vez.
 apt-get install -y \
+    curl \
+    git \
+    make \
+    gnupg \
+    unzip \
     libnss3 \
     libnspr4 \
     libatk1.0-0 \
@@ -38,10 +35,28 @@ apt-get install -y \
     libxrandr2 \
     libpangocairo-1.0-0 \
     libcairo2 \
-    libpango-1.0-0 \
-    unzip
+    libpango-1.0-0
 
-echo ">>> [5/5] Entrando na pasta do projeto e rodando 'make install'..."
+echo ">>> [3/6] Instalando Docker e Act (Nektos)..."
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+rm -f get-docker.sh
+usermod -aG docker vagrant
+
+# Install act
+curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/nektos/act/master/install.sh | bash
+mv bin/act /usr/local/bin/act || true
+rm -rf bin || true
+
+echo ">>> [4/6] Instalando Node.js v22.x (LTS)..."
+# Altera para o repositório oficial do NodeSource para a versão 22 (exigida pelo projeto).
+curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+apt-get install -y nodejs
+
+echo ">>> [5/6] Limpando cache do APT para reduzir o tamanho da imagem..."
+apt-get clean
+
+echo ">>> [6/6] Entrando na pasta do projeto e rodando 'make install'..."
 cd /home/vagrant/portfolio
 make install
 

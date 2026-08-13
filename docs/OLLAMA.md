@@ -25,9 +25,9 @@ O aplicativo visual "Ollama Desktop" para Windows possui bugs conhecidos de sinc
 
 Abra as **Variáveis de Ambiente do Sistema** no Windows e adicione **apenas estas duas chaves** na tabela de **Variáveis do Sistema** (na parte inferior):
 
-* **`OLLAMA_MODELS`** : `E:\ollama`*(Substitua pelo caminho do seu disco de preferência. Essencial para que os modelos pesados não lotem o disco C:).*
-* **`HSA_OVERRIDE_GFX_VERSION`** : `11.0.2`
-  *(Essencial para que o driver computacional HIP/ROCm da AMD reconheça e ative a aceleração de hardware na GPU).*
+- **`OLLAMA_MODELS`** : `E:\ollama`_(Substitua pelo caminho do seu disco de preferência. Essencial para que os modelos pesados não lotem o disco C:)._
+- **`HSA_OVERRIDE_GFX_VERSION`** : `11.0.2`
+  _(Essencial para que o driver computacional HIP/ROCm da AMD reconheça e ative a aceleração de hardware na GPU)._
 
 > ⚠️ **Atenção:** Remova ou não adicione variáveis redundantes como `OLLAMA_HOST`, `OLLAMA_ORIGINS` ou controles manuais de threads. Elas causam loops de timeout no back-end do Windows.
 
@@ -41,7 +41,7 @@ Abra o **Prompt de Comando (CMD)** ou **PowerShell** e execute o comando abaixo 
 ollama serve
 ```
 
-*Mantenha esta janela do terminal aberta.* Abra uma **segunda janela** do terminal e faça o download (pull) da nossa arquitetura de modelos recomendada para o ambiente:
+_Mantenha esta janela do terminal aberta._ Abra uma **segunda janela** do terminal e faça o download (pull) da nossa arquitetura de modelos recomendada para o ambiente:
 
 ```powershell
 # Cérebro Pesado - Utilizado para Chat, Agentes e Explicações Complexas
@@ -119,6 +119,6 @@ models:
 
 A estrutura foi desenhada de forma híbrida e otimizada para a GPU. Você não precisa alterar configurações para alternar o uso:
 
-* **Tab-Autocomplete (Invisível/Automático):** Conforme você digita seu código, o modelo ultraleve de `1.5b` faz a previsão do texto instantaneamente em cinza claro. Basta pressionar **`Tab`** para aceitar.
-* **Chat com Agente do Repositório (`Ctrl + L`):** Selecione blocos de códigos complexos e aperte `Ctrl + L`. O painel lateral enviará o contexto para o modelo pesado de `30b`, ideal para debugar erros, gerar documentações técnicas em Markdown e planejar escopos.
-* **Refatoração em Linha (`Ctrl + I`):** Abre uma caixa de edição rápida na linha atual para comandos diretos (ex: *"converta essa função para svelte"* ou *"adicione try/catch"*).
+- **Tab-Autocomplete (Invisível/Automático):** Conforme você digita seu código, o modelo ultraleve de `1.5b` faz a previsão do texto instantaneamente em cinza claro. Basta pressionar **`Tab`** para aceitar.
+- **Chat com Agente do Repositório (`Ctrl + L`):** Selecione blocos de códigos complexos e aperte `Ctrl + L`. O painel lateral enviará o contexto para o modelo pesado de `30b`, ideal para debugar erros, gerar documentações técnicas em Markdown e planejar escopos.
+- **Refatoração em Linha (`Ctrl + I`):** Abre uma caixa de edição rápida na linha atual para comandos diretos (ex: _"converta essa função para svelte"_ ou _"adicione try/catch"_).

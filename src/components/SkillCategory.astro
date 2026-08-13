@@ -17,30 +17,46 @@ const { categoria, porcentagem, corBarra, itens } = Astro.props;
   <div class="progress mb-3" style="height: 8px; background-color: #e2e8f0; border-radius: 4px;">
     <div class={`progress-bar ${corBarra}`} style={`width: ${porcentagem}%`}></div>
   </div>
-  
+
   <div class="timeline">
-    {itens.map((item) => (
-      <div class="timeline-card card shadow-sm mb-3">
-        <div class="card-body p-3">
-          <h4 class="h6 mb-2 text-primary">{item.subcategoria}</h4>
-          <ul class="list-unstyled mb-0 text-secondary" style="font-size: 0.9rem;">
-            {item.detalhes.map((detalhe) => (
-              <li class="mb-1"><i class="fa-solid fa-check me-2" style="color: var(--success-color);"></i>{detalhe}</li>
-            ))}
-          </ul>
+    {
+      itens.map((item) => (
+        <div class="timeline-card card shadow-sm mb-3">
+          <div class="card-body p-3">
+            <h4 class="h6 mb-2 text-primary">{item.subcategoria}</h4>
+            <ul class="list-unstyled mb-0 text-secondary" style="font-size: 0.9rem;">
+              {item.detalhes.map((detalhe) => (
+                <li class="mb-1">
+                  <i class="fa-solid fa-check me-2" style="color: var(--success-color);" />
+                  {detalhe}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
-    ))}
+      ))
+    }
   </div>
 </div>
 
 <style>
-  .card { border: none; border-left: 4px solid var(--border-color); }
-  .card-body { padding: 1rem; }
-  .progress-bar { transition: width 1s ease-in-out; }
-  
+  .card {
+    border: none;
+    border-left: 4px solid var(--border-color);
+  }
+  .card-body {
+    padding: 1rem;
+  }
+  .progress-bar {
+    transition: width 1s ease-in-out;
+  }
+
   @media print {
-    .progress { display: none !important; }
-    .card { border: 1px solid #ccc !important; }
+    .progress {
+      display: none !important;
+    }
+    .card {
+      border: 1px solid #ccc !important;
+    }
   }
 </style>

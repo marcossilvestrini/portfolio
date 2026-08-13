@@ -22,34 +22,42 @@ const sortedExperiencias = experiencias.sort((a, b) => (a.data?.ordem ?? 0) - (b
     <section class="skills-section mb-5">
       <h2 class="h3 mb-4">Habilidades Profissionais</h2>
       <div id="skills-grid" class="row">
-        {habilidades.map((h) => (
-          <div class="col-md-6 skill-item" data-perfis={h.data.perfis.join(',')}>
-            <SkillCategory {...h.data} />
-          </div>
-        ))}
+        {
+          habilidades.map((h) => (
+            <div class="col-md-6 skill-item" data-perfis={h.data.perfis.join(',')}>
+              <SkillCategory {...h.data} />
+            </div>
+          ))
+        }
       </div>
     </section>
 
     <section class="experience-section mb-5">
       <h2 class="h3 mb-4">Experiência Profissional</h2>
-      {sortedExperiencias.map((e) => (
-        <div class="exp-item" data-perfis={e.data.perfis.join(',')}>
-          <TimelineCard {...e.data} />
-        </div>
-      ))}
+      {
+        sortedExperiencias.map((e) => (
+          <div class="exp-item" data-perfis={e.data.perfis.join(',')}>
+            <TimelineCard {...e.data} />
+          </div>
+        ))
+      }
     </section>
 
     <section class="cert-section mb-5">
       <h2 class="h3 mb-4">Certificações e Formação</h2>
       <div class="row">
-        {certificacoes.map((c) => (
-          <div class="col-md-6 mb-3">
-            <div class="card p-3 shadow-sm">
-              <h4 class="h6">{c.data.titulo} <span class="text-muted small">- {c.data.instituicao}</span></h4>
-              <p class="small text-muted">{c.data.ano}</p>
+        {
+          certificacoes.map((c) => (
+            <div class="col-md-6 mb-3">
+              <div class="card p-3 shadow-sm">
+                <h4 class="h6">
+                  {c.data.titulo} <span class="text-muted small">- {c.data.instituicao}</span>
+                </h4>
+                <p class="small text-muted">{c.data.ano}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </section>
 

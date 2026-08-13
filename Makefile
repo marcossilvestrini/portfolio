@@ -99,11 +99,11 @@ type-check:
 
 .PHONY: lint
 lint:
-	$(ESLINT_CLI) "scripts/generatePdf.js" "src/**/*.js" "test/**/*.ts"
+	$(ESLINT_CLI) . --ext .js,.ts,.astro
 
 .PHONY: format
 format:
-	$(PRETTIER_CLI) --write "src/**/*.{js,ts,astro,css,json,md}"
+	$(PRETTIER_CLI) --write .
 
 .PHONY: check
 check: format type-check lint test

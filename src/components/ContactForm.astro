@@ -3,35 +3,33 @@ interface Props {
   title?: string;
 }
 
-const { title = "Entre em Contato" } = Astro.props;
+const { title = 'Entre em Contato' } = Astro.props;
 ---
 
 <form class="contact-form" id="contactForm" action="https://formspree.io/f/xpzekgve" method="POST">
   <h3 class="h4 mb-4">{title}</h3>
-  
+
   <div class="mb-3">
     <label for="name" class="form-label">Nome</label>
-    <input type="text" class="form-control" id="name" name="name" required>
+    <input type="text" class="form-control" id="name" name="name" required />
   </div>
-  
+
   <div class="mb-3">
     <label for="email" class="form-label">E-mail</label>
-    <input type="email" class="form-control" id="email" name="email" required>
+    <input type="email" class="form-control" id="email" name="email" required />
   </div>
-  
+
   <div class="mb-3">
     <label for="subject" class="form-label">Assunto</label>
-    <input type="text" class="form-control" id="subject" name="subject" required>
+    <input type="text" class="form-control" id="subject" name="subject" required />
   </div>
-  
+
   <div class="mb-3">
     <label for="message" class="form-label">Mensagem</label>
     <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
   </div>
-  
-  <button type="submit" class="btn btn-primary">
-    Enviar Mensagem
-  </button>
+
+  <button type="submit" class="btn btn-primary"> Enviar Mensagem </button>
 </form>
 
 <style>
@@ -41,16 +39,17 @@ const { title = "Entre em Contato" } = Astro.props;
     border-radius: 8px;
     border: 1px solid var(--border-color);
   }
-  
-  .form-control, .form-label {
+
+  .form-control,
+  .form-label {
     font-family: 'Roboto', sans-serif;
   }
-  
+
   .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
   }
-  
+
   .btn-primary:hover {
     background-color: var(--primary-hover);
     border-color: var(--primary-hover);

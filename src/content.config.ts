@@ -1,62 +1,60 @@
-import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { defineCollection, z } from "astro:content";
 
+// Schema para o perfil
 const perfilCollection = defineCollection({
-  loader: glob({ pattern: ['*.json', '!_*.json'], base: './src/content/perfil' }),
+  type: "data",
   schema: z.object({
     nome: z.string(),
     cargo: z.string(),
     idade: z.number(),
-    email: z.string(),
+    email: z.string().email(),
     telefone: z.string(),
     endereco: z.string(),
     sobre: z.array(z.string()),
     sociais: z.object({
-      twitter: z.string().optional(),
-      facebook: z.string().optional(),
-      instagram: z.string().optional(),
-      github: z.string().optional(),
-      linkedin: z.string().optional(),
+      twitter: z.string().url().optional(),
+      facebook: z.string().url().optional(),
+      instagram: z.string().url().optional(),
+      github: z.string().url().optional(),
+      linkedin: z.string().url().optional(),
     }),
   }),
 });
 
+// Schema para as experiências
 const experienciasCollection = defineCollection({
-  loader: glob({ pattern: ['*.json', '!_*.json'], base: './src/content/experiencias' }),
+  type: "data",
   schema: z.object({
-    ordem: z.number(),
+    ordem: z.number().optional(),
     cargo: z.string(),
     empresa: z.string(),
     periodo: z.string(),
-    detalhes: z.array(z.string()),
-    perfis: z.array(z.enum(['plataforma', 'devops', 'infraestrutura'])),
+    local: z.string().optional(),
+    detalhes: z.array(z.string()), // Corresponde ao campo 'detalhes' no JSON
+    perfis: z.array(z.string()),
   }),
 });
 
+// Schema para as habilidades
 const habilidadesCollection = defineCollection({
-  loader: glob({ pattern: ['*.json', '!_*.json'], base: './src/content/habilidades' }),
+  type: "data",
   schema: z.object({
-    categoria: z.string(),
-    porcentagem: z.number(),
-    corBarra: z.string(),
-    perfis: z.array(z.enum(['plataforma', 'devops', 'infraestrutura'])),
-    itens: z.array(
-      z.object({
-        subcategoria: z.string(),
-        detalhes: z.array(z.string()),
-      })
-    ),
+    perfis: z.array(z.string()),
+    titulo: z.string(),
+    icon: z.string(),
+    items: z.array(z.string()),
   }),
 });
 
+// Schema para as certificações
 const certificacoesCollection = defineCollection({
-  loader: glob({ pattern: ['*.json', '!_*.json'], base: './src/content/certificacoes' }),
+  type: "data",
   schema: z.object({
-    tipo: z.enum(['certificacao', 'formacao']),
+    tipo: z.string(),
     titulo: z.string(),
     instituicao: z.string(),
     ano: z.string(),
-    descricao: z.string().optional(),
+    descricao: z.string(),
   }),
 });
 
