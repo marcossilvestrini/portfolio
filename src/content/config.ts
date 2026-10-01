@@ -42,7 +42,7 @@ const habilidadesCollection = defineCollection({
   schema: z.object({
     perfis: z.array(z.string()),
     categoria: z.string(),
-    porcentagem: z.number(),
+    porcentagem: z.number().min(0).max(100).optional(),
     itens: z.array(
       z.object({
         subcategoria: z.string(),

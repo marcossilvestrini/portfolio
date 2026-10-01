@@ -28,7 +28,10 @@
       "subcategoria": "Virtualização",
       "detalhes": [
         "VMWare: Criação de datacenters, storages, switches, vCenter e automações com PowerCLI / govc.",
-        "KVM: Noções de virtualização local com QEMU-KVM e libvirt."
+        "KVM, QEMU e libvirt: gerenciamento de domínios, redes, armazenamento e snapshots com virsh e virt-install.",
+        "Xen: conceitos de Dom0/DomU, gerenciamento com xl e XenStore.",
+        "Imagens de máquinas virtuais: criação, inspeção e conversão de imagens raw, qcow2 e VMDK com qemu-img; acesso a arquivos com guestfish/guestmount.",
+        "Conceitos de virtualização completa e paravirtualização, NUMA e migrações P2V/V2V."
       ]
     }
   ]

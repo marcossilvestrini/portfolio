@@ -7,7 +7,9 @@
       "subcategoria": "Cloud Computing (Multi-Cloud)",
       "detalhes": [
         "Microsoft Azure: Administração via Portal e Azure CLI/PowerShell, gestão de Resource Groups, Compute, Network, Storage, Azure Active Directory e segurança (Azure Security).",
-        "AWS, OCI & GCP: Noções de nuvem AWS (EC2, VPC, EBS), conceitos de redes e IAM na Oracle Cloud Infrastructure (OCI IAM, VCN, AD/FD) e provisionamento básico no Google Cloud Platform."
+        "Magalu Cloud: Provisionamento de recursos da nuvem pública por CLI, API e Terraform; análise e troubleshooting de clusters Kubernetes, redes e outros recursos do ecossistema.",
+        "AWS, OCI & GCP: Noções de nuvem AWS (EC2, VPC, EBS), conceitos de redes e IAM na Oracle Cloud Infrastructure (OCI IAM, VCN, AD/FD) e provisionamento básico no Google Cloud Platform.",
+        "Conceitos multi-cloud e modelos IaaS, PaaS e SaaS; estudos de OpenStack (Nova, Cinder, Swift e Neutron)."
       ]
     },
     {

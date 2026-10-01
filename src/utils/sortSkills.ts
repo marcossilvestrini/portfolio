@@ -1,9 +1,12 @@
 const skillOrder = [
   'Infraestrutura',
   'Cloud Computing & Governança de TI',
-  'DevOps, CI/CD & Containers',
+  'DevOps & CI/CD',
+  'Containers',
+  'Kubernetes & Orquestração',
   'Engenharia de Plataforma & DX',
   'Observabilidade & Monitoramento',
+  'IA & Automação Inteligente',
 ];
 
 export function sortSkills<T extends { data: { categoria: string } }>(skills: T[]): T[] {

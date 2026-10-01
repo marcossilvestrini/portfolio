@@ -1,7 +1,7 @@
 ---
 interface Props {
   categoria: string;
-  porcentagem: number;
+  porcentagem?: number;
   itens: { subcategoria: string; detalhes: string[] }[];
 }
 
@@ -12,18 +12,22 @@ const color = '#7186a8';
 <article class="skill-card" style={`--skill-color: ${color}`}>
   <div class="skill-card__heading">
     <h3>{categoria}</h3>
-    <span>{porcentagem}%</span>
+    {porcentagem !== undefined && <span>{porcentagem}%</span>}
   </div>
-  <div
-    class="skill-meter"
-    role="progressbar"
-    aria-label={`Nível de ${categoria}`}
-    aria-valuemin="0"
-    aria-valuemax="100"
-    aria-valuenow={porcentagem}
-  >
-    <span style={`width: ${porcentagem}%`}></span>
-  </div>
+  {
+    porcentagem !== undefined && (
+      <div
+        class="skill-meter"
+        role="progressbar"
+        aria-label={`Nível de ${categoria}`}
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow={porcentagem}
+      >
+        <span style={`width: ${porcentagem}%`} />
+      </div>
+    )
+  }
   <details class="skill-disclosure">
     <summary>
       Ver competências <span>{itens.length} {itens.length === 1 ? 'área' : 'áreas'}</span>

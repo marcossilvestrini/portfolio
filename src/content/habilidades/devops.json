@@ -1,5 +1,5 @@
 {
-  "categoria": "DevOps, CI/CD & Containers",
+  "categoria": "DevOps & CI/CD",
   "porcentagem": 80,
   "perfis": ["devops", "plataforma"],
   "itens": [
@@ -14,15 +14,9 @@
       "subcategoria": "Infraestrutura como Código (IaC)",
       "detalhes": [
         "Terraform: Gerenciamento de estado (State), escrita de Módulos reutilizáveis, e provisionamento declarativo multicloud.",
-        "Ansible: Criação de Playbooks, Roles estruturadas, gestão de variáveis sensíveis com Ansible Vault, e execução de comandos ad-hoc."
-      ]
-    },
-    {
-      "subcategoria": "Containers & Orquestração",
-      "detalhes": [
-        "Docker: Escrita de Dockerfiles otimizados (multi-stage), Docker Compose, gerenciamento de imagens e redes.",
-        "Kubernetes: Instalação e gestão de Clusters (Kind, Kubeadm, RKE2), arquitetura control-plane/worker, workloads (Deployments, Statefulsets, Daemonsets, Pods), persistência (PV/PVC), Services e Rancher.",
-        "Evolução K8s: Empacotamento com Helm (criação e customização de Charts) e entrega contínua GitOps com ArgoCD (Applications, Applicationsets e estratégias de sincronização)."
+        "Ansible: Criação de Playbooks, Roles estruturadas, gestão de variáveis sensíveis com Ansible Vault, e execução de comandos ad-hoc.",
+        "Packer: conceitos de builders, provisioners e criação automatizada de imagens de máquinas virtuais e containers.",
+        "cloud-init e Vagrant: configuração inicial de instâncias e provisionamento reprodutível de ambientes de laboratório."
       ]
     }
   ]

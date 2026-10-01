@@ -1,0 +1,23 @@
+{
+  "categoria": "Containers",
+  "perfis": ["infraestrutura", "devops", "plataforma"],
+  "itens": [
+    {
+      "subcategoria": "Docker e ciclo de vida de containers",
+      "detalhes": [
+        "Criação e execução de containers com Dockerfiles, imagens, registries, volumes e redes.",
+        "Docker Compose para definir e operar aplicações com múltiplos serviços.",
+        "Conceitos e operações de Docker Swarm: nós, serviços, réplicas, stacks e escalabilidade."
+      ]
+    },
+    {
+      "subcategoria": "Containers Linux e fundamentos",
+      "detalhes": [
+        "Estudos e prática com LXC/LXD, imagens, instâncias, snapshots, perfis e limites de recursos.",
+        "Fundamentos de isolamento Linux: namespaces, cgroups v1/v2 e capabilities.",
+        "Conceitos de runtimes e formatos OCI, incluindo containerd, runc e CRI-O; noções de Podman, Buildah e Skopeo.",
+        "Mecanismos de segurança para containers: seccomp, AppArmor e SELinux."
+      ]
+    }
+  ]
+}

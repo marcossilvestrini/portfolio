@@ -1,0 +1,23 @@
+{
+  "categoria": "Kubernetes & Orquestração",
+  "perfis": ["infraestrutura", "devops", "plataforma"],
+  "itens": [
+    {
+      "subcategoria": "Clusters e workloads",
+      "detalhes": [
+        "Instalação, configuração e análise de clusters Kubernetes em laboratórios e ambientes de nuvem, incluindo Kubeadm, RKE2 e Rancher.",
+        "Arquitetura de control plane e nodes; operação de Pods, Deployments, StatefulSets, DaemonSets, Jobs e CronJobs.",
+        "Configuração e troubleshooting de Services, rede de cluster e persistência com PV/PVC.",
+        "Uso de kubectl para consultar, descrever, aplicar manifestos, escalar workloads e investigar problemas."
+      ]
+    },
+    {
+      "subcategoria": "Entrega e ecossistema",
+      "detalhes": [
+        "Helm: uso e customização de charts, repositórios e releases.",
+        "GitOps com Argo CD: Applications, ApplicationSets e estratégias de sincronização.",
+        "Conceitos de orquestração e integração com runtimes de containers e a Container Runtime Interface (CRI)."
+      ]
+    }
+  ]
+}
