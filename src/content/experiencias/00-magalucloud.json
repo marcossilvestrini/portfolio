@@ -1,0 +1,13 @@
+{
+  "ordem": 1,
+  "cargo": "Engenharia, arquitetura e desenvolvimento em nuvem",
+  "empresa": "Magalu Cloud",
+  "periodo": "Atual",
+  "detalhes": [
+    "Atuação na nuvem pública Magalu Cloud, provisionando recursos por CLI, API e Terraform.",
+    "Análise e depuração de incidentes em clusters Kubernetes, redes e outros recursos do ecossistema Magalu Cloud.",
+    "Atuação transversal em arquitetura, engenharia e desenvolvimento de soluções na nuvem.",
+    "Aprofundamento em virtualização, containers e Kubernetes aplicado a ambientes de nuvem."
+  ],
+  "perfis": ["devops", "plataforma", "infraestrutura"]
+}

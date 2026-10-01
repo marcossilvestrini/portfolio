@@ -1,0 +1,85 @@
+---
+import { getEntry } from 'astro:content';
+
+const perfil = await getEntry('perfil', 'marcos');
+if (!perfil) throw new Error('O perfil principal não foi encontrado.');
+
+const { nome, cargo, idade, email, telefone, endereco, resumo, sociais } = perfil.data;
+const baseUrl = import.meta.env.BASE_URL;
+const phoneDigits = telefone.replace(/\D/g, '');
+const phoneDisplay =
+  phoneDigits.length === 11
+    ? `(${phoneDigits.slice(0, 2)}) ${phoneDigits.slice(2, 7)}-${phoneDigits.slice(7)}`
+    : telefone;
+const phoneLink = phoneDigits.startsWith('55') ? phoneDigits : `55${phoneDigits}`;
+---
+
+<header class="hero">
+  <div class="hero__inner">
+    <figure class="hero__portrait">
+      <img
+        src={`${baseUrl}images/avatar.jpg`}
+        alt={`Retrato de ${nome}`}
+        width="434"
+        height="394"
+        fetchpriority="high"
+      />
+    </figure>
+
+    <div class="hero__copy">
+      <h1>{nome}</h1>
+      <p class="hero__role">{cargo}</p>
+      <p class="hero__summary">{resumo}</p>
+
+      <dl class="hero__facts" aria-label="Informações pessoais">
+        <div class="hero-fact">
+          <dt>Idade</dt>
+          <dd>{idade} anos</dd>
+        </div>
+        <div class="hero-fact">
+          <dt>Localização</dt>
+          <dd>{endereco}</dd>
+        </div>
+        <div class="hero-fact">
+          <dt>Telefone</dt>
+          <dd><a href={`tel:+${phoneLink}`}>{phoneDisplay}</a></dd>
+        </div>
+      </dl>
+
+      <div class="hero__links" aria-label="Links profissionais">
+        {
+          sociais.github && (
+            <a class="hero-link" href={sociais.github} target="_blank" rel="noopener noreferrer">
+              <span class="hero-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="8.5" />
+                  <path d="m9 9-3 3 3 3m6-6 3 3-3 3M13.5 7.5l-3 9" />
+                </svg>
+              </span>
+              <span>GitHub</span>
+            </a>
+          )
+        }
+        {
+          sociais.linkedin && (
+            <a class="hero-link" href={sociais.linkedin} target="_blank" rel="noopener noreferrer">
+              <span class="hero-link__icon hero-link__icon--linkedin" aria-hidden="true">
+                in
+              </span>
+              <span>LinkedIn</span>
+            </a>
+          )
+        }
+        <a class="hero-link" href={`mailto:${email}`}>
+          <span class="hero-link__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect>
+              <path d="m4.5 7 7.5 6 7.5-6"></path>
+            </svg>
+          </span>
+          <span>E-mail</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

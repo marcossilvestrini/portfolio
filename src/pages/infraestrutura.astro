@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import ProfileSelector from '../components/ProfileSelector.astro';
+import SkillCategory from '../components/SkillCategory.astro';
+import TimelineCard from '../components/TimelineCard.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import { sortSkills } from '../utils/sortSkills';
+
+const experiencias = await getCollection('experiencias');
+const habilidades = await getCollection('habilidades');
+const filteredExp = experiencias
+  .filter((experiencia) => experiencia.data.perfis.includes('infraestrutura'))
+  .sort((a, b) => (a.data.ordem ?? 0) - (b.data.ordem ?? 0));
+const filteredSkills = sortSkills(
+  habilidades.filter((habilidade) => habilidade.data.perfis.includes('infraestrutura'))
+);
+---
+
+<Layout title="Infraestrutura — Marcos Silvestrini">
+  <Header />
+  <ProfileSelector />
+  <main class="content-shell">
+    <section class="content-section">
+      <div class="section-heading section-heading--page">
+        <h2>Infraestrutura &amp; SysAdmin</h2>
+        <p>Fundamentos sólidos em sistemas, redes, segurança e ambientes virtualizados.</p>
+      </div>
+      <div class="skills-grid">
+        {filteredSkills.map((habilidade) => <SkillCategory {...habilidade.data} />)}
+      </div>
+    </section>
+    <section class="content-section">
+      <div class="section-heading"><h2>Experiência relacionada</h2></div>
+      <div class="experience-list">
+        {filteredExp.map((experiencia) => <TimelineCard {...experiencia.data} />)}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

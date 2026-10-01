@@ -1,0 +1,25 @@
+{
+  "categoria": "IA & Automação Inteligente",
+  "porcentagem": 70,
+  "cor": "#8067a8",
+  "perfis": ["devops", "plataforma", "infraestrutura"],
+  "itens": [
+    {
+      "subcategoria": "IA generativa aplicada ao trabalho técnico",
+      "detalhes": [
+        "Criação e refinamento de prompts para diferentes modelos e tarefas, com contexto, objetivo, restrições e formato de saída definidos.",
+        "Uso de modelos locais com Ollama e integração de assistentes de IA ao ambiente de desenvolvimento.",
+        "Uso de IA como apoio para pesquisar documentação, compreender tecnologias, revisar configurações e explorar hipóteses de troubleshooting.",
+        "Apoio à leitura e síntese de logs, mensagens de erro e documentação técnica, validando as conclusões antes de aplicá-las."
+      ]
+    },
+    {
+      "subcategoria": "Automação e produtividade com IA",
+      "detalhes": [
+        "Uso de IA para apoiar a criação, revisão e documentação de scripts e automações de rotinas operacionais.",
+        "Apoio na elaboração de workflows, templates e tarefas repetitivas de DevOps, com revisão e testes antes da execução.",
+        "Uso responsável de modelos: revisão humana das respostas e cuidado para não compartilhar credenciais ou dados sensíveis."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "categoria": "DevOps & CI/CD",
+  "porcentagem": 80,
+  "cor": "#5872b5",
+  "perfis": ["devops", "plataforma"],
+  "itens": [
+    {
+      "subcategoria": "Git, CI/CD e GitOps",
+      "detalhes": [
+        "Git: Controle de versão, fluxos Trunk-Based e Gitflow.",
+        "Sistemas & Pipelines: Automações com GitHub Actions, Bitbucket Pipelines e GitLab Workflows com integrações Slack, Jira e Confluence.",
+        "Argo CD: conceitos de Applications e ApplicationSets para descrever aplicações e gerar implantações a partir de repositórios Git.",
+        "Argo CD: familiaridade com o ciclo de sincronização, comparação entre estado desejado e estado do cluster, health, sync policies e operações sync, refresh e rollback via CLI (`argocd app`)."
+      ]
+    },
+    {
+      "subcategoria": "Infraestrutura como Código (IaC)",
+      "detalhes": [
+        "Terraform: Gerenciamento de estado (State), escrita de Módulos reutilizáveis, e provisionamento declarativo multicloud.",
+        "Ansible: Criação de Playbooks, Roles estruturadas, gestão de variáveis sensíveis com Ansible Vault, e execução de comandos ad-hoc.",
+        "Packer: conceitos de builders, provisioners e criação automatizada de imagens de máquinas virtuais e containers.",
+        "cloud-init e Vagrant: configuração inicial de instâncias e provisionamento reprodutível de ambientes de laboratório.",
+        "Helm: estrutura de charts, Chart.yaml, values.yaml e templates Go para parametrizar manifests Kubernetes.",
+        "Helm: uso de funções e condicionais em templates, documentação de charts, empacotamento, repositórios e ciclo de releases com install, upgrade, rollback e uninstall."
+      ]
+    }
+  ]
+}

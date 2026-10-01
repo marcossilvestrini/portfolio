@@ -1,0 +1,10 @@
+{
+  "ordem": 5,
+  "cargo": "Estágio - Preview",
+  "empresa": "TOTVS / Preview",
+  "periodo": "Jan, 2010 - Jun, 2011",
+  "detalhes": [
+    "Realizava tarefas relacionadas à manutenção da infraestrutura, análise de código em Delphi e análise de requisitos para novas funcionalidades do ERP."
+  ],
+  "perfis": ["infraestrutura"]
+}

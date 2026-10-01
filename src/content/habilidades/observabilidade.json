@@ -1,0 +1,28 @@
+{
+  "categoria": "Observabilidade & Monitoramento",
+  "porcentagem": 75,
+  "cor": "#b07a3d",
+  "perfis": ["devops", "plataforma", "infraestrutura"],
+  "itens": [
+    {
+      "subcategoria": "Métricas, dashboards e alertas",
+      "detalhes": [
+        "Prometheus: conceitos de coleta de métricas, targets, exporters, PromQL e regras de gravação e alerta.",
+        "Grafana: criação e leitura de dashboards para visualizar métricas e apoiar a análise operacional.",
+        "Grafana Alloy: conceitos de agente unificado para coletar, processar e encaminhar telemetria, incluindo métricas, logs e traces.",
+        "Alertmanager: conceitos de agrupamento, roteamento, silenciamento e encaminhamento de alertas do Prometheus.",
+        "Datadog: familiaridade com observabilidade SaaS, visualização de métricas e investigação de sinais de aplicações e infraestrutura."
+      ]
+    },
+    {
+      "subcategoria": "Logs, traces e OpenTelemetry",
+      "detalhes": [
+        "Grafana Loki: conceitos de agregação e consulta de logs integrados a dashboards e alertas no Grafana.",
+        "Grafana Tempo: conceitos de armazenamento e consulta de traces distribuídos para investigar jornadas entre serviços.",
+        "Grafana Mimir: conceitos de armazenamento escalável e consulta de métricas compatíveis com Prometheus.",
+        "OpenTelemetry (OTel): conceitos de instrumentação e coleta de traces, métricas e logs por SDKs e Collector, com exportação para backends de observabilidade.",
+        "Centreon, Nagios Core e Zabbix: monitoramento de hosts e serviços, checks locais e remotos, agentes, dashboards e alertas."
+      ]
+    }
+  ]
+}

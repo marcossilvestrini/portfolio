@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Currículo profissional de Marcos Silvestrini, especialista em Cloud, DevOps e SRE.',
+} = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101e36" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" href={`${baseUrl}favicon.ico`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href={`${baseUrl}css/site.css`} />
+    <link rel="stylesheet" href={`${baseUrl}css/print.css`} media="print" />
+  </head>
+  <body>
+    <div class="site-frame">
+      <slot />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile para o ambiente de desenvolvimento do projeto Portfolio Astro.
+
+# ENABLE EXPERIMENTAL FEATURES
+ENV["VAGRANT_EXPERIMENTAL"] = "Disks"
+
+# PLUGINS
+required_plugins = ["vagrant-vmware-desktop", "vagrant-reload", "vagrant-disksize"]
+required_plugins.each do |plugin|
+  unless Vagrant.has_plugin?(plugin)
+    system "vagrant plugin install #{plugin}"
+    puts "Installed the #{plugin} plugin."
+  end
+end
+
+Vagrant.configure("2") do |config|
+  # Define a imagem base da VM. Debian 11 (Bullseye).
+  config.vm.box = "debian/bullseye64"
+
+  # Define um nome para a VM no VirtualBox para fácil identificação.
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "portfolio-dev-vm"
+    vb.memory = "8192" # Aloca 8GB de RAM.
+    vb.cpus = 8        # Aloca 8 CPUs.
+  end
+
+  # Configura uma rede pública (bridged) com IP estático.
+  config.vm.network "public_network", ip: "192.168.0.132", bridge: [
+    "eth0: Intel(R) I211 Gigabit Network Connection"
+  ]
+
+  # Redireciona a porta 4321 da VM para a máquina local.
+  config.vm.network "forwarded_port", guest: 4321, host: 4321, auto_correct: true
+  
+  # Sincroniza a raiz do projeto para o diretório nativo /home/vagrant/portfolio na VM.
+  config.vm.synced_folder "..", "/home/vagrant/portfolio", disabled: false, owner: "vagrant", group: "vagrant"
+
+  # Executa o script de provisionamento.
+  config.vm.provision "shell", path: "setup.sh"
+end

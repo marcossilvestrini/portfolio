@@ -1,0 +1,24 @@
+---
+interface Props {
+  cargo: string;
+  empresa: string;
+  periodo: string;
+  local?: string;
+  detalhes: string[];
+}
+
+const { cargo, empresa, periodo, local, detalhes } = Astro.props;
+---
+
+<article class="experience-card">
+  <div class="experience-card__heading">
+    <div>
+      <h3>{cargo}</h3>
+      <p class="experience-card__company">{empresa}{local ? ` · ${local}` : ''}</p>
+    </div>
+    <span class="experience-card__period">{periodo}</span>
+  </div>
+  <ul class="detail-list">
+    {detalhes.map((detalhe) => <li>{detalhe}</li>)}
+  </ul>
+</article>

@@ -1,0 +1,31 @@
+---
+const baseUrl = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname.replace(/\/+$/, '');
+const currentRoute =
+  currentPath === '' || currentPath === '/' || currentPath === baseUrl.replace(/\/+$/, '')
+    ? ''
+    : currentPath.split('/').pop();
+
+const profiles = [
+  { id: 'todos', route: '', label: 'Visão geral' },
+  { id: 'infraestrutura', route: 'infraestrutura', label: 'Infraestrutura' },
+  { id: 'devops', route: 'devops', label: 'DevOps & SRE' },
+  { id: 'plataforma', route: 'plataforma', label: 'Plataforma' },
+];
+---
+
+<nav class="profile-nav" aria-label="Visões do currículo">
+  <div class="profile-nav__links">
+    {
+      profiles.map((profile) => (
+        <a
+          href={`${baseUrl}${profile.route ? `${profile.route}/` : ''}`}
+          class:list={['profile-nav__link', { 'is-active': currentRoute === profile.route }]}
+          aria-current={currentRoute === profile.route ? 'page' : undefined}
+        >
+          {profile.label}
+        </a>
+      ))
+    }
+  </div>
+</nav>

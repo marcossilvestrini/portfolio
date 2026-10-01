@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import ProfileSelector from '../components/ProfileSelector.astro';
+import SkillCategory from '../components/SkillCategory.astro';
+import TimelineCard from '../components/TimelineCard.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection, getEntry } from 'astro:content';
+import { sortSkills } from '../utils/sortSkills';
+
+const sobre = await getEntry('sobre', 'marcos');
+if (!sobre) throw new Error('O conteúdo da seção “Sobre mim” não foi encontrado.');
+
+const perfil = await getEntry('perfil', 'marcos');
+if (!perfil) throw new Error('O perfil principal não foi encontrado.');
+
+const experiencias = await getCollection('experiencias');
+const habilidades = sortSkills(await getCollection('habilidades'));
+const certificacoes = await getCollection('certificacoes');
+const sortedExperiencias = experiencias.sort((a, b) => (a.data.ordem ?? 0) - (b.data.ordem ?? 0));
+---
+
+<Layout title="Marcos Silvestrini — Cloud, DevOps & SRE">
+  <Header />
+  <ProfileSelector />
+
+  <main class="content-shell">
+    <section class="content-section intro-section" id="sobre">
+      <div class="about-heading">
+        <h2>Sobre mim</h2>
+        <p>Um pouco sobre como penso e trabalho.</p>
+      </div>
+      <div class="intro-copy">
+        {
+          sobre.data.paragrafos.map((paragraph, index) => (
+            <article class="intro-point">
+              <span class="intro-point__icon" aria-hidden="true">
+                {index === 0 && (
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M7.5 18h9a4.5 4.5 0 0 0 .6-9A6 6 0 0 0 5.5 10 4 4 0 0 0 7.5 18Z" />
+                  </svg>
+                )}
+                {index === 1 && (
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="8.5" />
+                    <circle cx="12" cy="12" r="4.5" />
+                    <circle cx="12" cy="12" r="1" />
+                  </svg>
+                )}
+                {index === 2 && (
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <circle cx="9" cy="8" r="3" />
+                    <path d="M3.5 20v-1a5.5 5.5 0 0 1 11 0v1m1-12a3 3 0 0 1 0 6m1 1a4.5 4.5 0 0 1 4 4.5V20" />
+                  </svg>
+                )}
+                {index >= 3 && (
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M20.8 8.7c0 5.2-8.8 10.2-8.8 10.2S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.8 2.4Z" />
+                  </svg>
+                )}
+              </span>
+              <p>{paragraph}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="content-section" id="habilidades">
+      <div class="section-heading">
+        <h2>Habilidades profissionais</h2>
+        <p>Experiência prática em operações, automação e plataformas de nuvem.</p>
+      </div>
+      <div class="skills-grid">
+        {habilidades.map((habilidade) => <SkillCategory {...habilidade.data} />)}
+      </div>
+    </section>
+
+    <section class="content-section" id="experiencia">
+      <div class="section-heading">
+        <h2>Experiência profissional</h2>
+      </div>
+      <div class="experience-list">
+        {sortedExperiencias.map((experiencia) => <TimelineCard {...experiencia.data} />)}
+      </div>
+    </section>
+
+    <section class="content-section" id="formacao">
+      <div class="section-heading">
+        <h2>Certificações e estudos</h2>
+      </div>
+      <div class="certification-grid">
+        {
+          certificacoes.map((certificacao) => (
+            <article class="certification-card">
+              <span class="certification-card__type">{certificacao.data.tipo}</span>
+              <h3>{certificacao.data.titulo}</h3>
+              <p>{certificacao.data.instituicao}</p>
+              <span class="certification-card__year">{certificacao.data.ano}</span>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="content-section contact-section" id="contato">
+      <div class="section-heading">
+        <h2>Entre em contato</h2>
+        <p>Tem um desafio de Cloud, DevOps ou SRE? Envie uma mensagem.</p>
+      </div>
+      <ContactForm />
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
