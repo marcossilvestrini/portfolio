@@ -1,22 +1,37 @@
 {
   "categoria": "Containers",
+  "porcentagem": 75,
+  "cor": "#9a668f",
   "perfis": ["infraestrutura", "devops", "plataforma"],
   "itens": [
     {
       "subcategoria": "Docker e ciclo de vida de containers",
       "detalhes": [
-        "Criação e execução de containers com Dockerfiles, imagens, registries, volumes e redes.",
-        "Docker Compose para definir e operar aplicações com múltiplos serviços.",
-        "Conceitos e operações de Docker Swarm: nós, serviços, réplicas, stacks e escalabilidade."
+        "Arquitetura Docker: cliente, daemon dockerd, imagens, containers e registries; configuração do daemon e diretório de dados.",
+        "Construção e manutenção de imagens com Dockerfile, camadas, tags, cache, build, pull, push e execução a partir de registries.",
+        "Operação e diagnóstico de containers: criação, listagem, logs, exec, inspect, portas publicadas e políticas de reinício.",
+        "Persistência e conectividade: volumes nomeados, bind mounts, redes bridge e publicação de portas.",
+        "Docker Compose: definição de aplicações multi-container em YAML, configuração, build, logs, execução e ciclo de vida dos serviços."
       ]
     },
     {
       "subcategoria": "Containers Linux e fundamentos",
       "detalhes": [
-        "Estudos e prática com LXC/LXD, imagens, instâncias, snapshots, perfis e limites de recursos.",
-        "Fundamentos de isolamento Linux: namespaces, cgroups v1/v2 e capabilities.",
-        "Conceitos de runtimes e formatos OCI, incluindo containerd, runc e CRI-O; noções de Podman, Buildah e Skopeo.",
-        "Mecanismos de segurança para containers: seccomp, AppArmor e SELinux."
+        "Estudos e laboratórios LPIC-3 com LXC/LXD: imagens, criação e execução de instâncias, attach, snapshots, perfis, redes, armazenamento e limites de recursos.",
+        "Fundamentos de isolamento do kernel: namespaces PID, mount, network, UTS, IPC e user; inspeção com unshare, nsenter e lsns.",
+        "Cgroups v1/v2: hierarquias e controladores, leitura do uso e aplicação de limites de CPU e memória a grupos de processos.",
+        "Capabilities Linux e princípio do menor privilégio; inspeção e ajuste de capabilities de processos e executáveis.",
+        "Arquitetura e padrões OCI: responsabilidades de containerd e runc, integração do CRI-O e conceitos da Container Runtime Interface.",
+        "Ferramentas do ecossistema: noções de Podman, Buildah e Skopeo para executar, construir e copiar imagens.",
+        "Segurança e troubleshooting: seccomp, AppArmor e SELinux; análise de isolamento e permissões no host Linux.",
+        "Contexto e alternativas: chroot, OpenVZ, systemd-nspawn, FreeBSD Jails e runtime rkt."
+      ]
+    },
+    {
+      "subcategoria": "Orquestração com Docker Swarm",
+      "detalhes": [
+        "Conceitos de cluster manager/worker, nós, serviços, tasks, réplicas, disponibilidade e escalabilidade.",
+        "Operações de serviços e stacks: inicialização do swarm, associação de nós, deploy, atualização e escala de serviços."
       ]
     }
   ]

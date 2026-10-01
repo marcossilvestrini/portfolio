@@ -1,22 +1,41 @@
 {
   "categoria": "Kubernetes & Orquestração",
+  "porcentagem": 75,
+  "cor": "#397f9b",
   "perfis": ["infraestrutura", "devops", "plataforma"],
   "itens": [
     {
-      "subcategoria": "Clusters e workloads",
+      "subcategoria": "Arquitetura e operação de clusters",
       "detalhes": [
-        "Instalação, configuração e análise de clusters Kubernetes em laboratórios e ambientes de nuvem, incluindo Kubeadm, RKE2 e Rancher.",
-        "Arquitetura de control plane e nodes; operação de Pods, Deployments, StatefulSets, DaemonSets, Jobs e CronJobs.",
-        "Configuração e troubleshooting de Services, rede de cluster e persistência com PV/PVC.",
-        "Uso de kubectl para consultar, descrever, aplicar manifestos, escalar workloads e investigar problemas."
+        "Instalação, configuração e análise de clusters Kubernetes em laboratórios e ambientes de nuvem; experiência com Kubeadm, RKE2 e Rancher.",
+        "Componentes do control plane: kube-apiserver, etcd, kube-scheduler e kube-controller-manager; componentes de node: kubelet, kube-proxy e container runtime.",
+        "Investigação de estado do cluster e workloads com kubectl get/describe/logs/exec, eventos e inspeção de recursos."
       ]
     },
     {
-      "subcategoria": "Entrega e ecossistema",
+      "subcategoria": "Workloads, configuração e escalabilidade",
       "detalhes": [
-        "Helm: uso e customização de charts, repositórios e releases.",
-        "GitOps com Argo CD: Applications, ApplicationSets e estratégias de sincronização.",
-        "Conceitos de orquestração e integração com runtimes de containers e a Container Runtime Interface (CRI)."
+        "Operação de Pods, ReplicaSets, Deployments, StatefulSets, DaemonSets, Jobs e CronJobs.",
+        "Configuração de aplicações com ConfigMaps, Secrets, variáveis de ambiente e probes de startup, readiness e liveness.",
+        "Definição de requests/limits de CPU e memória e conceitos de escalabilidade horizontal com HPA.",
+        "Uso de namespaces, ServiceAccounts e RBAC para separar recursos e controlar acesso."
+      ]
+    },
+    {
+      "subcategoria": "Rede, serviços e persistência",
+      "detalhes": [
+        "Services ClusterIP, NodePort e LoadBalancer; descoberta de serviços e DNS de cluster com CoreDNS.",
+        "Fundamentos de rede de pods e integração CNI; investigação de conectividade, resolução DNS e acesso externo por Ingress.",
+        "Persistência com PersistentVolumes, PersistentVolumeClaims e StorageClasses; conceitos de provisionamento dinâmico."
+      ]
+    },
+    {
+      "subcategoria": "Entrega, runtime e ecossistema",
+      "detalhes": [
+        "Helm: charts, values, templates, repositórios e ciclo de releases com install, upgrade e rollback.",
+        "GitOps com Argo CD: Applications, ApplicationSets, sincronização e reconciliação do estado desejado.",
+        "Integração entre Kubernetes, kubelet e runtimes de containers via CRI; conceitos de containerd e CRI-O.",
+        "Conhecimento do ecossistema de plataformas: Rancher e conceitos de OpenShift."
       ]
     }
   ]

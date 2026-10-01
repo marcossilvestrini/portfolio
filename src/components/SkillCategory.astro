@@ -1,33 +1,29 @@
 ---
 interface Props {
   categoria: string;
-  porcentagem?: number;
+  porcentagem: number;
+  cor: string;
   itens: { subcategoria: string; detalhes: string[] }[];
 }
 
-const { categoria, porcentagem, itens } = Astro.props;
-const color = '#7186a8';
+const { categoria, porcentagem, cor, itens } = Astro.props;
 ---
 
-<article class="skill-card" style={`--skill-color: ${color}`}>
+<article class="skill-card" style={`--skill-color: ${cor}`}>
   <div class="skill-card__heading">
     <h3>{categoria}</h3>
-    {porcentagem !== undefined && <span>{porcentagem}%</span>}
+    <span>{porcentagem}%</span>
   </div>
-  {
-    porcentagem !== undefined && (
-      <div
-        class="skill-meter"
-        role="progressbar"
-        aria-label={`Nível de ${categoria}`}
-        aria-valuemin="0"
-        aria-valuemax="100"
-        aria-valuenow={porcentagem}
-      >
-        <span style={`width: ${porcentagem}%`} />
-      </div>
-    )
-  }
+  <div
+    class="skill-meter"
+    role="progressbar"
+    aria-label={`Nível estimado de ${categoria}`}
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-valuenow={porcentagem}
+  >
+    <span style={`width: ${porcentagem}%`}></span>
+  </div>
   <details class="skill-disclosure">
     <summary>
       Ver competências <span>{itens.length} {itens.length === 1 ? 'área' : 'áreas'}</span>

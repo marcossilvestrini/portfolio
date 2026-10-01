@@ -1,5 +1,7 @@
 {
   "categoria": "IA & Automação Inteligente",
+  "porcentagem": 70,
+  "cor": "#8067a8",
   "perfis": ["devops", "plataforma", "infraestrutura"],
   "itens": [
     {

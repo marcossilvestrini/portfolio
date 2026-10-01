@@ -1,6 +1,7 @@
 {
   "categoria": "Infraestrutura",
   "porcentagem": 90,
+  "cor": "#607a9f",
   "perfis": ["infraestrutura", "devops"],
   "itens": [
     {
@@ -28,10 +29,11 @@
       "subcategoria": "Virtualização",
       "detalhes": [
         "VMWare: Criação de datacenters, storages, switches, vCenter e automações com PowerCLI / govc.",
-        "KVM, QEMU e libvirt: gerenciamento de domínios, redes, armazenamento e snapshots com virsh e virt-install.",
-        "Xen: conceitos de Dom0/DomU, gerenciamento com xl e XenStore.",
-        "Imagens de máquinas virtuais: criação, inspeção e conversão de imagens raw, qcow2 e VMDK com qemu-img; acesso a arquivos com guestfish/guestmount.",
-        "Conceitos de virtualização completa e paravirtualização, NUMA e migrações P2V/V2V."
+        "KVM, QEMU e libvirt: gerenciamento de domínios com virsh e virt-install; configuração de vCPU, memória, afinidade e autostart.",
+        "Redes e armazenamento libvirt: bridges e redes virtuais, pools, volumes, discos e dispositivos de máquinas virtuais.",
+        "Xen: arquitetura de hipervisor, Dom0/DomU e PV/HVM; operações com xl, XenStore, consoles e recursos dos domínios.",
+        "Imagens de VM: criar, inspecionar, redimensionar e converter raw, qcow2 e VMDK com qemu-img; acessar sistemas de arquivos com guestfish e guestmount.",
+        "Conceitos LPIC-3: virtualização completa e paravirtualização, NUMA, snapshots, emulação e migrações P2V/V2V; noções de OVF/OVA, oVirt, Proxmox e Open vSwitch."
       ]
     }
   ]
