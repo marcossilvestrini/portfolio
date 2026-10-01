@@ -18,3 +18,7 @@
 #Slack
 Slack/silvestrini.py
 *__pycache__*
+
+# js
+node_modules/
+

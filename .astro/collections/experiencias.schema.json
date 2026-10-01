@@ -1,0 +1,49 @@
+{
+  "$ref": "#/definitions/experiencias",
+  "definitions": {
+    "experiencias": {
+      "type": "object",
+      "properties": {
+        "ordem": {
+          "type": "number"
+        },
+        "cargo": {
+          "type": "string"
+        },
+        "empresa": {
+          "type": "string"
+        },
+        "periodo": {
+          "type": "string"
+        },
+        "local": {
+          "type": "string"
+        },
+        "detalhes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "perfis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "cargo",
+        "empresa",
+        "periodo",
+        "detalhes",
+        "perfis"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,61 @@
+{
+  "$ref": "#/definitions/perfil",
+  "definitions": {
+    "perfil": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string"
+        },
+        "cargo": {
+          "type": "string"
+        },
+        "idade": {
+          "type": "number"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "telefone": {
+          "type": "string"
+        },
+        "endereco": {
+          "type": "string"
+        },
+        "resumo": {
+          "type": "string"
+        },
+        "sociais": {
+          "type": "object",
+          "properties": {
+            "github": {
+              "type": "string",
+              "format": "uri"
+            },
+            "linkedin": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "nome",
+        "cargo",
+        "idade",
+        "email",
+        "telefone",
+        "endereco",
+        "resumo",
+        "sociais"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
