@@ -20,7 +20,7 @@
     "pdf": "node scripts/generatePdf.js"
   },
   "dependencies": {
-    "astro": "^4.14.0"
+    "astro": "^7.3.5"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
