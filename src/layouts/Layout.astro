@@ -4,187 +4,33 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'Currículo Profissional de Marcos Silvestrini' } = Astro.props;
+const {
+  title,
+  description = 'Currículo profissional de Marcos Silvestrini, especialista em Cloud, DevOps e SRE.',
+} = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101e36" />
     <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.ico" />
-
-    <!-- Fonts -->
+    <title>{title}</title>
+    <link rel="icon" href={`${baseUrl}favicon.ico`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-
-    <!-- FontAwesome CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- Local styles (bootstrap + site + print) -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/site.css" />
-    <link rel="stylesheet" href="/css/print.css" media="print" />
-
-    <style is:global>
-      :root {
-        --primary-color: #2c5282;
-        --primary-hover: #1a365d;
-        --success-color: #2f855a;
-        --success-hover: #22543d;
-        --info-color: #319795;
-        --bg-light: #f7fafc;
-        --bg-card: #ffffff;
-        --text-main: #2d3748;
-        --text-muted: #718096;
-        --border-color: #e2e8f0;
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        font-family: 'Roboto', sans-serif;
-        color: var(--text-main);
-        background-color: #ebf0f5;
-        line-height: 1.6;
-        padding: 2rem 1rem;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: 'Poppins', sans-serif;
-        color: var(--primary-color);
-        font-weight: 600;
-      }
-
-      .container {
-        max-width: 1000px;
-        margin: 0 auto;
-        background-color: var(--bg-card);
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        overflow: hidden;
-      }
-
-      a {
-        color: var(--primary-color);
-        text-decoration: none;
-        transition: color 0.2s ease;
-      }
-
-      a:hover {
-        color: var(--primary-hover);
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1.5rem;
-        border-radius: 6px;
-        font-weight: 500;
-        font-family: 'Poppins', sans-serif;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        border: none;
-        font-size: 0.95rem;
-      }
-
-      .btn-primary {
-        background-color: var(--primary-color);
-        color: white;
-      }
-
-      .btn-primary:hover {
-        background-color: var(--primary-hover);
-        color: white;
-        transform: translateY(-2px);
-      }
-
-      .btn-success {
-        background-color: var(--success-color);
-        color: white;
-      }
-
-      .btn-success:hover {
-        background-color: var(--success-hover);
-        color: white;
-        transform: translateY(-2px);
-      }
-
-      .btn-light {
-        background-color: #edf2f7;
-        color: var(--text-main);
-        border: 1px solid var(--border-color);
-      }
-
-      .btn-light:hover {
-        background-color: #e2e8f0;
-        transform: translateY(-2px);
-      }
-
-      .page-break {
-        page-break-before: always;
-      }
-
-      /* Print styles */
-      @media print {
-        body {
-          background-color: white !important;
-          color: black !important;
-          padding: 0 !important;
-          font-size: 11pt !important;
-        }
-
-        .container {
-          box-shadow: none !important;
-          border-radius: 0 !important;
-          max-width: 100% !important;
-          margin: 0 !important;
-        }
-
-        .d-print-none {
-          display: none !important;
-        }
-
-        .page-break {
-          page-break-before: always !important;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-          color: black !important;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href={`${baseUrl}css/site.css`} />
+    <link rel="stylesheet" href={`${baseUrl}css/print.css`} media="print" />
   </head>
   <body>
-    <div class="container">
+    <div class="site-frame">
       <slot />
     </div>
   </body>

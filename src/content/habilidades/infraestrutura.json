@@ -1,7 +1,6 @@
 {
   "categoria": "Infraestrutura",
   "porcentagem": 90,
-  "corBarra": "bg-danger",
   "perfis": ["infraestrutura", "devops"],
   "itens": [
     {

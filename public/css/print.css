@@ -1,37 +1,79 @@
 @media print {
+  :root {
+    color-scheme: light;
+  }
+
   body {
-    background-color: #fff;
+    color: #17243a;
+    background: #fff;
+    font-size: 10pt;
   }
-  .container {
-    width: auto;
-    max-width: 100%;
+
+  .hero {
+    padding: 1.5rem 0;
+    color: #17243a;
+    background: #fff;
+  }
+
+  .hero::after,
+  .profile-nav,
+  .contact-section,
+  .site-footer {
+    display: none !important;
+  }
+
+  .hero__inner {
+    grid-template-columns: 110px 1fr;
+    gap: 1.2rem;
+  }
+
+  .hero__portrait {
+    width: 110px;
+    height: 125px;
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+
+  .hero h1,
+  .hero__role,
+  .hero__summary,
+  .eyebrow--light {
+    color: #17243a;
+  }
+
+  .hero h1 {
+    font-size: 25pt;
+  }
+
+  .hero__links {
+    margin-top: 0.5rem;
+  }
+
+  .hero-link {
     padding: 0;
+    border: 0;
+    color: #17243a;
   }
-  .cover,
-  .cover-bg {
-    border-radius: 0;
+
+  .content-shell {
+    width: 100%;
+    padding: 1rem 0;
   }
-  .cover.shadow-lg {
-    box-shadow: none !important;
+
+  .content-section {
+    margin-bottom: 1.5rem;
   }
-  .cover-bg {
-    padding: 5rem !important;
-    padding-bottom: 10px !important;
+
+  .skill-card,
+  .experience-card,
+  .certification-card,
+  .intro-section {
+    break-inside: avoid;
+    box-shadow: none;
   }
-  .avatar {
-    margin-top: -10px;
-  }
-  .about-section {
-    padding: 6.5rem 5rem 2rem !important;
-  }
-  .skills-section,
-  .work-experience-section,
-  .education-section,
-  .contant-section {
-    padding: 1.5rem 5rem 2rem !important;
-  }
-  .page-break {
-    padding-top: 5rem;
-    page-break-before: always;
+
+  .skills-grid,
+  .certification-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

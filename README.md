@@ -1,78 +1,53 @@
-# Portfolio de Marcos Silvestrini
+# Portfólio — Marcos Silvestrini
 
-## Sobre
+Currículo profissional estático construído com Astro. As páginas e os dados são gerados durante o build; não há backend para renderização em produção.
 
-Este é o repositório do portfolio pessoal de Marcos Silvestrini, um profissional especializado em Cloud Computing e Infraestrutura com foco na cultura DevOps. O site foi migrado para Astro, um framework moderno para construção de websites estáticos de alta performance.
+## Requisitos
 
-## Estrutura do Projeto (Simplificada)
+- Node.js 22 ou superior
+- npm
 
-```
-.
-├── src/
-│   ├── components/     # Componentes reutilizáveis
-│   ├── layouts/        # Layouts para páginas
-│   ├── pages/          # Páginas do site
-│   └── styles/         # Estilos globais
-├── public/             # Arquivos estáticos
-├── dist/               # Build gerado
-├── .astro/             # Arquivos de configuração do Astro
-├── Makefile            # Comandos para desenvolvimento
-└── package.json        # Dependências do projeto
+## Desenvolvimento
+
+```sh
+npm ci
+npm run dev
 ```
 
-## Tecnologias Utilizadas
+O servidor Astro exibe o endereço local no terminal e recarrega a página quando arquivos de conteúdo ou componentes são alterados. Para testar o artefato de produção, execute `npm run build` e depois `npm run preview`.
 
-- **Astro**: Framework para construção de websites estáticos
-- **TypeScript**: Linguagem de programação para desenvolvimento
-- **Tailwind CSS**: Framework CSS para estilização
-- **Markdown**: Para conteúdo textual
-- **Makefile**: Automatização de comandos de desenvolvimento
+## Comandos
 
-## Comandos Disponíveis
+| Comando            | Função                                                                   |
+| ------------------ | ------------------------------------------------------------------------ |
+| `npm run dev`      | Inicia o servidor de desenvolvimento com atualização automática          |
+| `npm run check`    | Verifica tipos e componentes Astro                                       |
+| `npm run build`    | Gera o site estático em `dist/`                                          |
+| `npm run preview`  | Serve o build de `dist/`; não observa mudanças nos arquivos fonte        |
+| `npm run test:run` | Executa os testes Vitest                                                 |
+| `npm run pdf`      | Gera um PDF com Puppeteer; aceita `URL` e `OUT` por variável de ambiente |
 
-O projeto utiliza um Makefile com diversos comandos para facilitar o desenvolvimento:
+## Atualizar o currículo
 
-```bash
-# Ver ajuda dos comandos disponíveis
-make help
+- Perfil: `src/content/perfil/marcos.json`
+- Textos da seção “Sobre mim”: `src/content/sobre/marcos.json`
+- Experiências: `src/content/experiencias/`
+- Habilidades: `src/content/habilidades/`
+- Formação e certificações: `src/content/certificacoes/`
 
-# Instalar dependências
-make install
+O campo `resumo` em `perfil/marcos.json` alimenta apenas o texto do cabeçalho. Os cartões da seção “Sobre mim” vêm de `sobre/marcos.json`, então as alterações nesse arquivo não mudam o cabeçalho. As coleções e seus schemas estão em `src/content/config.ts`. Após editar JSON, use `npm run dev` para ver as alterações imediatamente; no preview é necessário gerar um novo build.
 
-# Iniciar servidor de desenvolvimento
-make dev
+## Estrutura
 
-# Buildar projeto para produção
-make build
+- `src/pages/`: visão geral e visões de Infraestrutura, DevOps & SRE e Plataforma.
+- `src/components/`: componentes Astro reutilizados pelas páginas.
+- `src/layouts/`: HTML base, metadados e folhas de estilo.
+- `src/utils/`: funções compartilhadas, como a ordenação das habilidades.
+- `public/`: CSS, favicon e imagem copiados para o build.
+- `scripts/generatePdf.js`: geração do currículo em PDF.
+- `slack/`: utilitários Python independentes do site Astro.
+- `dist/`: saída gerada; não edite manualmente.
 
-# Visualizar build localmente
-make preview
+## Publicação
 
-# Limpar arquivos gerados
-make clean
-
-# Executar testes
-make test
-
-# Verificação completa do projeto
-make check
-```
-
-## Como Usar
-
-1. Clone o repositório
-2. Instale as dependências com `make install`
-3. Inicie o servidor de desenvolvimento com `make dev`
-4. Acesse http://localhost:4321
-
-## Contribuições
-
-Este é um projeto pessoal, mas feedbacks e sugestões são bem-vindos!
-
-## Autor
-
-Marcos Silvestrini - [marcos.silvestrini@gmail.com](mailto:marcos.silvestrini@gmail.com)
-
-## Licença
-
-Este projeto está sob a licença MIT.
+O workflow `.github/workflows/deploy.yml` compila e publica no GitHub Pages quando há push para `main` ou execução manual. O projeto usa o caminho base `/portfolio/`.

@@ -1,21 +1,12 @@
 {
   "nome": "Marcos Silvestrini",
-  "cargo": "Cloud Specialist - Devops - SRE",
-  "idade": 42,
+  "cargo": "Cloud Specialist - Devops & SRE - Platform Engineer",
+  "idade": 45,
   "email": "marcos.silvestrini@gmail.com",
-  "telefone": "11943414909",
+  "telefone": "11948933830",
   "endereco": "São Paulo, Brazil",
-  "sobre": [
-    "Olá! Eu sou Marcos Silvestrini. Apaixonado por tecnologia.",
-    "Atuo nas áreas de Cloud e Infraestrutura com ênfase na Cultura DevOps.",
-    "No ambiente corporativo tenho como foco principal o Cliente.",
-    "Gosto de interagir com todas as áreas nas empresas que atuo.",
-    "Prezo por valores como qualidade de vida, ética e bom relacionamento profissional."
-  ],
+  "resumo": "Olá! Eu sou Marcos Silvestrini.\nApaixonado por tecnologia.",
   "sociais": {
-    "twitter": "https://twitter.com/mrsilvestrini",
-    "facebook": "https://www.facebook.com/mrsilvestriniface",
-    "instagram": "https://www.instagram.com/mrsilvestrini",
     "github": "https://github.com/marcossilvestrini",
     "linkedin": "https://www.linkedin.com/in/marcossilvestrini/"
   }

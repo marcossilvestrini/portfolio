@@ -1,7 +1,6 @@
 {
   "categoria": "DevOps, CI/CD & Containers",
   "porcentagem": 80,
-  "corBarra": "bg-primary",
   "perfis": ["devops", "plataforma"],
   "itens": [
     {

@@ -14,7 +14,7 @@
     "astro": "node ./node_modules/astro/astro.js",
     "lint": "node ./node_modules/eslint/bin/eslint.js . --ext .js,.ts,.astro",
     "format": "node ./node_modules/prettier/bin/prettier.js --write .",
-    "check": "node node_modules/@astrojs/check/bin/astro-check.js",
+    "check": "node ./node_modules/astro/astro.js check",
     "test": "node ./node_modules/vitest/vitest.mjs",
     "test:run": "node ./node_modules/vitest/vitest.mjs run",
     "pdf": "node scripts/generatePdf.js"

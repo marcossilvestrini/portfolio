@@ -6,27 +6,39 @@ import SkillCategory from '../components/SkillCategory.astro';
 import TimelineCard from '../components/TimelineCard.astro';
 import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
+import { sortSkills } from '../utils/sortSkills';
 
 const experiencias = await getCollection('experiencias');
 const habilidades = await getCollection('habilidades');
-
 const filteredExp = experiencias
-  .filter((e) => (e.data?.perfis || []).includes('plataforma'))
-  .sort((a, b) => (a.data?.ordem ?? 0) - (b.data?.ordem ?? 0));
-
-const filteredSkills = habilidades.filter((h) => (h.data?.perfis || []).includes('plataforma'));
+  .filter((experiencia) => experiencia.data.perfis.includes('plataforma'))
+  .sort((a, b) => (a.data.ordem ?? 0) - (b.data.ordem ?? 0));
+const filteredSkills = sortSkills(
+  habilidades.filter((habilidade) => habilidade.data.perfis.includes('plataforma'))
+);
 ---
 
-<Layout title="Marcos Silvestrini - Engenharia de Plataforma">
+<Layout title="Engenharia de Plataforma — Marcos Silvestrini">
   <Header />
   <ProfileSelector />
-  <main class="px-4 py-4">
-    <h2 class="h3 mb-4">Especialidade: Engenharia de Plataforma</h2>
-    <section class="mb-5">
-      {filteredSkills.map((h) => <SkillCategory {...h.data} />)}
+  <main class="content-shell">
+    <section class="content-section">
+      <div class="section-heading section-heading--page">
+        <h2>Engenharia de plataforma</h2>
+        <p>
+          Plataformas internas, infraestrutura como código e experiências melhores para equipes de
+          desenvolvimento.
+        </p>
+      </div>
+      <div class="skills-grid">
+        {filteredSkills.map((habilidade) => <SkillCategory {...habilidade.data} />)}
+      </div>
     </section>
-    <section class="mb-5">
-      {filteredExp.map((e) => <TimelineCard {...e.data} />)}
+    <section class="content-section">
+      <div class="section-heading"><h2>Experiência relacionada</h2></div>
+      <div class="experience-list">
+        {filteredExp.map((experiencia) => <TimelineCard {...experiencia.data} />)}
+      </div>
     </section>
   </main>
   <Footer />

@@ -1,7 +1,6 @@
 {
   "categoria": "Engenharia de Plataforma & DX",
   "porcentagem": 85,
-  "corBarra": "bg-success",
   "perfis": ["plataforma"],
   "itens": [
     {

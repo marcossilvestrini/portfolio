@@ -1,7 +1,6 @@
 {
   "categoria": "Observabilidade & Monitoramento",
   "porcentagem": 75,
-  "corBarra": "bg-info",
   "perfis": ["devops", "plataforma", "infraestrutura"],
   "itens": [
     {

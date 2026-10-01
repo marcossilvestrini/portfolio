@@ -1,7 +1,6 @@
 {
   "categoria": "Cloud Computing & Governança de TI",
   "porcentagem": 70,
-  "corBarra": "bg-warning",
   "perfis": ["devops", "plataforma", "infraestrutura"],
   "itens": [
     {

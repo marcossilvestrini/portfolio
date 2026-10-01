@@ -16,7 +16,7 @@ Para garantir que o Ollama utilize o desempenho total da placa de vídeo (aceler
 
 O aplicativo visual "Ollama Desktop" para Windows possui bugs conhecidos de sincronização de porta com placas recentes. Por isso, a recomendação oficial para ambientes de desenvolvimento é utilizar apenas o binário de terminal do Ollama.
 
-1. Baixe o instalador oficial em: [://ollama.com](https://://ollama.com).
+1. Baixe o instalador oficial em: [ollama.com](https://ollama.com).
 2. Execute o instalador `OllamaSetup.exe` e conclua o assistente.
 3. Assim que a instalação finalizar, vá até a barra de tarefas do Windows (perto do relógio), clique com o botão direito no ícone da "Lhaminha" e selecione **Quit** (Sair).
 4. Abra o **Gerenciador de Tarefas** (`Ctrl + Shift + Esc`) e garanta que nenhum processo `ollama.exe` ou `ollama_app.exe` ficou travado em segundo plano.
