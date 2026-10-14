@@ -24,53 +24,65 @@ async function generate() {
     // Força o ecrã normal para ignorar o ficheiro print.css do site
     await page.emulateMediaType('screen');
     
-    // Manipulação direta do DOM - Infalível contra conflitos de CSS
+    // 1. A sua lógica impecável de manipulação do DOM
     await page.evaluate(() => {
-      // 1. Remover fisicamente os botões "Ver competências" para não haver sobreposição
       document.querySelectorAll('summary').forEach(el => el.remove());
 
-      // 2. Expandir todas as habilidades
       document.querySelectorAll('details').forEach(el => {
         el.setAttribute('open', 'true');
         el.style.display = 'block';
       });
 
-      // 3. Forçar o texto do cabeçalho a branco
       const header = document.querySelector('header.hero');
       if (header) {
         header.style.backgroundColor = '#101e36';
         header.style.webkitPrintColorAdjust = 'exact';
         header.style.printColorAdjust = 'exact';
-        // Aplica cor branca a todos os elementos filhos do cabeçalho
         header.querySelectorAll('*').forEach(child => {
           child.style.color = '#ffffff';
           child.style.visibility = 'visible';
         });
       }
 
-      // 4. Quebrar o formato de grelha para evitar texto sobreposto
-      const skillsGrid = document.querySelector('.skills-grid');
-      if (skillsGrid) {
-        skillsGrid.style.display = 'block'; // Transforma grelha em blocos verticais
-      }
-
-      // 5. Ajustar os cartões para não quebrarem a meio da página
-      const cards = document.querySelectorAll('.skill-card, .timeline-card');
-      cards.forEach(card => {
-        card.style.display = 'block';
-        card.style.height = 'auto';
-        card.style.marginBottom = '25px';
-        card.style.pageBreakInside = 'avoid';
-        card.style.breakInside = 'avoid';
-      });
-
-
-      // 6. Esconder secções exclusivas da web e a barra de ferramentas do Astro
+      // Esconder secções exclusivas da web e a barra de ferramentas do Astro
       const elementsToHide = document.querySelectorAll('.profile-nav, .contact-section, footer.site-footer, astro-dev-toolbar, #astro-dev-toolbar');
       elementsToHide.forEach(el => {
         if (el) el.style.display = 'none';
-      });     
+      });
+    });
 
+    // 2. A CORREÇÃO CIRÚRGICA PARA AS QUEBRAS DE PÁGINA
+    // Nota: Como estamos emulando 'screen', não podemos usar @media print!
+    await page.addStyleTag({
+      content: `
+        /* Remove o Flex/Grid dos contentores pais (obrigatório para o break-inside funcionar no Chrome) */
+        .skills-grid, .experience-list, .certification-grid, .content-shell {
+          display: block !important;
+        }
+
+        /* Classes CORRETAS das caixas para evitar o corte a meio */
+        .skill-card, .experience-card, .certification-card {
+          display: block !important;
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+          margin-bottom: 25px !important;
+        }
+
+        /* Evita que as linhas das listas sejam cortadas ao meio */
+        li {
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+        }
+
+        /* Evita que um título fique órfão no final de uma página */
+        h2, h3, h4 {
+          page-break-after: avoid !important;
+          break-after: avoid !important;
+        }
+        
+        /* Garantia extra contra a barra do Astro */
+        astro-dev-toolbar { display: none !important; }
+      `
     });
     
     // Aguarda 3 segundos para que todas as alterações estruturais se estabilizem
@@ -83,7 +95,7 @@ async function generate() {
       margin: {
         top: "10mm",
         right: "15mm",
-        bottom: "10mm",
+        bottom: "15mm",
         left: "15mm",
       },
     });
